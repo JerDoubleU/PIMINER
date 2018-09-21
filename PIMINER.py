@@ -1,8 +1,12 @@
 import argparse # inorder to port to command line
 import os # system controls
-# import spaCy # NLP tooling to detect certain kinds of entities
-# import pandas as pd # dataframe data structure for outputs
+import pandas as pd # dataframe data structure for outputs
+import textract # used to parse PDF files
+import spacy # industrial strength NLP engine
+import re # string operations, mostly data cleaning
 
+# load NLP library object
+nlp = spacy.load('en_core_web_lg')
 
 # main function call
 def PIMINER(input_file):
@@ -11,10 +15,14 @@ def PIMINER(input_file):
     source_file = os.path.basename(input_file)
     base = os.path.splitext(source_file)[0]
 
-    # read the input file and print content to sdtout
-    file_object = open(source_file)
-    for text_line in file_object:
-        print(text_line)
+    # create nlp object from input_file
+    text = str(textract.process(source_file))
+    doc = nlp(text)
+
+    # test prints
+    for ent in doc.ents:
+        print(ent.text, ent.label_)
+
 
 if __name__ == "__main__":
 
