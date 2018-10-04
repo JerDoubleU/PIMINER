@@ -1,2 +1,5 @@
 # ignore testing file
 *.txt
+
+# ignore data dirs
+*DATA*
