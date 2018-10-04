@@ -1,5 +1,9 @@
-# ignore testing file
+# ignore testing files
 *.txt
+*.pdf
+*.csv
+*.tsv
+*.md
 
 # ignore data dirs
 *DATA*

@@ -16,7 +16,7 @@ def PIMINER(input_file):
     base = os.path.splitext(source_file)[0]
 
     # create nlp object from input_file
-    text = str(textract.process(source_file))
+    text = str(textract.process(input_file))
     doc = nlp(text)
 
     # test prints
