@@ -1,9 +1,3 @@
-# ignore testing files
-*.txt
-*.pdf
-*.csv
-*.tsv
-*.md
-
-# ignore data dirs
-*DATA*
+# ignore all data in testing dirs
+DATA_TEST/*
+CLEANED_DATA/*
