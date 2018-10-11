@@ -8,16 +8,19 @@ import spacy # industrial strength NLP engine
 import re # string operations, mostly data cleaning
 import subprocess # used to invoke shell scripts
 
-# load NLP library object
-nlp = spacy.load('en_core_web_lg')
-
 # main function call
 def PIMINER(input_file):
+
+    model = 'en_core_web_lg'
+    print('Loading spacy library: ' + str(model))
+
+    # load NLP library object
+    nlp = spacy.load(model)
+    print('Library loaded successfully.')
 
     # file operations
     source_file = os.path.basename(input_file)
     base = os.path.splitext(source_file)[0]
-    print('*** PRINTING RESULTS FOR: ' + str(base) + ' ***')
 
     """
     need to make simple file handling more robust.
@@ -32,19 +35,28 @@ def PIMINER(input_file):
     # output, error = process.communicate()
     """
 
+    print('Reading file: ' + str(source_file))
     # create nlp object from input_file
     text = str(textract.process(input_file))
-    doc = nlp(text)
+    print('Read COMPLETE.')
 
+    print('Converting file to spacy object: ' + str(source_file))
+    doc = nlp(text)
+    print('Convert COMPLETE.')
+
+    print('Checking ' + str(base) + ' for phone numbers...')
     ## this is a check for possible phone numbers, saved to list
+    ## Need to look for 9 digits phone numbers
     PHONE_NUMBER = re.compile('\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}')
     PHONE_NUMBER_LIST = []
 
     for phone_match in re.finditer(PHONE_NUMBER, doc.text):
         if phone_match:
             PHONE_NUMBER_LIST.append("{}".format(phone_match.group(0)))
-            print("POSSIBLE PHONE NUMBER: {}".format(phone_match.group(0)))
+            # print("POSSIBLE PHONE NUMBER: {}".format(phone_match.group(0)))
+    print('Phone number analysis COMPLETE.')
 
+    print('Checking ' + str(source_file) + ' for email addresses...')
     ## this is a check for possible email addresses, saved to a list
     # EMAIL_ADDRESS = re.compile('[^@]+@[^@]+\.[^@]+')
     # EMAIL_ADDRESS_LIST = []
@@ -53,6 +65,7 @@ def PIMINER(input_file):
     #     if email_match:
     #         PHONE_NUMBER_LIST.append("{}".format(email_match.group(0)))
     #         print("POSSIBLE EMAIL ADDRESS: {}".format(email_match.group(0)))
+    print('Email addresses analysis COMPLETE.')
 
     """
     ## this is a list of spacy entities types
@@ -71,13 +84,15 @@ def PIMINER(input_file):
                     'LAW', # Named documents made into laws.
                     'DATE' # Absolute or relative dates or periods.
                     ]
-
+    print('Checking ' + str(source_file) + ' for names, organizations, and dates...')
+    ENTITY_LIST = []
     # print out detected named entities
-    for ent in doc.ents:
+    for entity in doc.ents:
 
         # for now, limit output to the entity types in the list above
-        if ent.label_ in entity_types:
-            print('POSSIBLE ' + str(ent.label_).upper() + ": " + str(ent.text))
+        if entity.label_ in entity_types:
+            ENTITY_LIST.append(str(entity.label_).upper() + ": " + str(entity.text))
+            # print('POSSIBLE ' + str(entity.label_).upper() + ": " + str(entity.text))
 
     # # iteration through file and print noun chunks
     # for chunk in doc.noun_chunks:

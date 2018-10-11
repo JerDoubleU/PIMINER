@@ -1,5 +1,2 @@
 Matthew
 Julia
-email
-phone number
-street address
