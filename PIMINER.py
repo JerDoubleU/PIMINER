@@ -16,7 +16,7 @@ def PIMINER(input_file):
 
     # load NLP library object
     nlp = spacy.load(model)
-    print('Library loaded successfully.')
+    print('Library load COMPLETE.')
 
     # file operations
     source_file = os.path.basename(input_file)
