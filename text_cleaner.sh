@@ -2,8 +2,8 @@
 
 ## This script is used to clean the elements in the DATA_TEST dir
 
-DATA_DIR='DATA_TEST'
-CLEANED_DATA_DIR='CLEANED_DATA'
+DATA_DIR='raw_data'
+CLEANED_DATA_DIR='cleaned_data'
 
 for FILE in ${DATA_DIR}/*.txt
   do

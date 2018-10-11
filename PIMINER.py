@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import argparse # inorder to port to command line
 import os # system controls
 import pandas as pd # dataframe data structure for outputs
