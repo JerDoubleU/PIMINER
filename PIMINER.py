@@ -52,7 +52,7 @@ def getNamedEntities(entity_types, doc):
             ENTITY_LIST.append(NER_tup)
 
     print('named_entity search COMPLETE.')
-    print('Found' + str(len(ENTITY_LIST)) + '\n')
+    print('Found ' + str(len(ENTITY_LIST)) + '\n')
     return ENTITY_LIST
 
 """
@@ -90,13 +90,17 @@ def piminer(input_file):
 
     patterns = [
         ('phone_number', '\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}'),
+        ('phone_number','(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)'),
+        ('VIN_number', "^[^iIoOqQ'-]{10,17}$"),
         ('email_address', '^[a-zA-Z0-9._%-+]+@[a-zA-Z0-9._%-]+.[a-zA-Z]{2,6}$'),
+        ('latitude_longitude', '^[NS]([0-8][0-9](\.[0-5]\d){2}|90(\.00){2})\040[EW]((0\d\d|1[0-7]\d)(\.[0-5]\d){2}|180(\.00){2})$'),
         ('social_security_number', '^(?!000)([0-6]\d{2}|7([0-6]\d|7[012])) ([ -])? (?!00)\d\d([ -|])? (?!0000)\d{4}$'),
         ('EIN_number', '/[0-9]{2}-[0-9]{7}/'),
         ('passport_number', '/[0-9]{2}-[0-9]{7}/'),
         ('Iv4', '/[0-9]{2}-[0-9]{7}/'),
         ('Iv6', '/^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i'),
-        ('credit_card_number', '/^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i')
+        ('credit_card_number', '/^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i'),
+        ('CA_driver_license', '"^[A-Z]{1}\d{7}$')
     ]
 
     # define lists based off of first-pass regex and NER
