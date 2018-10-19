@@ -1,3 +1,5 @@
 # ignore all data in testing dirs
 raw_data/*
-cleaned_data/*
+
+# shell
+*.sh
