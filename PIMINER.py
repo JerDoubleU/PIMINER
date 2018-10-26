@@ -49,18 +49,47 @@ def getChunks(document):
 
 # # get list of items that preceed the current token
 # # takes an NLP object as input
-def getChildren(span, document):
+def getChildren(token):
     childList = []
 
-    # print(token.text, token.dep_, token.head.text, token.head.pos_,
-    #       [child for child in token.children], '\n')
+    print(token.text, token.dep_, token.head.text, token.head.pos_,
+          [child for child in token.children], '\n')
 
 # # takes an NLP object as input
 # # returns a dataframe of position, type, and value
 def getEntities(document):
 
+    print('Conducting individual entity searches...\n')
+
     # # list structure to transform into dataframe
     new_rows = []
+
+    print('Conducting named entity search...')
+
+    for entity in document.ents:
+
+        # print(dir(entity))
+
+        # print('for:', entity.text)
+
+        # store the left and right tokens for all NEs
+        lefts = []
+        subtree = []
+
+        [lefts.append(x) for x in entity.lefts]
+        [rights.append(x) for x in entity.lefts]
+        [subtree.append(x) for x in entity.subtree]
+
+        row = {'entity_type':str(entity.label_).upper(),
+            'text_value':str(entity.text),
+            'start_position':entity.start_char,
+            'end_position':entity.end_char,
+            'lefts':lefts,
+            'subtree':subtree}
+
+        new_rows.append(row)
+
+    print('Named entity search COMPLETE.\n')
 
     # # easily extendable regex_patterns
     regex_patterns = {
@@ -77,7 +106,7 @@ def getEntities(document):
         'CREDIT_CARD_NUMBER': '/^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i'
     }
 
-    # # first pass: iterate through all regex_matches
+    print('Conducting regex search...')
     for search_pattern in regex_patterns:
 
         for regex_match in re.finditer(re.compile(regex_patterns[search_pattern]), document.text):
@@ -101,16 +130,10 @@ def getEntities(document):
                 # save to list for conversion to dataframe
                 new_rows.append(row)
 
-    # # second pass: find all named entities
-    for entity in document.ents:
+    print('Regex search COMPLETE.\n')
 
-        row = {'entity_type':str(entity.label_).upper(),
-            'text_value':str(entity.text),
-            'start_position':entity.start_char,
-            'end_position':entity.end_char}
-
-        new_rows.append(row)
-
+    print('Found ' + str(len(new_rows)) + ' total entities...')
+    print('Individual entity search COMPLETE.\n')
     # # return dataframe with results for clustering
     return pd.DataFrame(new_rows)
 
@@ -184,6 +207,7 @@ def piminer(input_file):
         # get dataframe with entity type, entity value, and position
         frame = getEntities(document)
         print(frame)
+        frame.to_csv(str(base) + "_PII_Results.csv")
 
 if __name__ == "__main__":
 
