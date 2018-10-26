@@ -5,12 +5,6 @@ import os # # system controls
 import pandas as pd # # dataframe data structure for outputs
 import math # # used to break files into chunks
 import textract # # used to parse PDF files
-
-# # Textract supports the following file types:
-# #    [.csv, .doc , .docx , .eml , .epub, .gif, .jpg, .jpeg, .json,
-# #    .html, .htm, .mp3, .msg, .odt, .ogg, .pdf, .png, .pptx, .ps,
-# #    .rtf, .tiff,  .tif, .txt, .wav, .xlsx, .xls]
-
 import re # # string operations, mostly data cleaning
 import spacy # # industrial strength NLP engine
 from spacy.symbols import nsubj, VERB
@@ -55,57 +49,70 @@ def getChunks(document):
 
 # # get list of items that preceed the current token
 # # takes an NLP object as input
-def getChildren(document):
+def getChildren(span, document):
     childList = []
 
-    for token in document:
+    # print(token.text, token.dep_, token.head.text, token.head.pos_,
+    #       [child for child in token.children], '\n')
 
-        print(token.text, token.dep_, token.head.text, token.head.pos_,
-              [child for child in token.children], '\n')
+# # takes an NLP object as input
+# # returns a dataframe of position, type, and value
+def getEntities(document):
 
+    # # list structure to transform into dataframe
+    new_rows = []
 
-# # iterates through a series of regex expressions for matches
-# # supported expressions defined in the piminer() function
-# # takes an NLP object as input and a list of regex patterns
-def getRegexMatches(regex_patterns, document):
+    # # easily extendable regex_patterns
+    regex_patterns = {
+        'PHONE_NUMBER': '\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}',
+        'INTERNATIONAL_PHONE_NUMBER':'(?:[+]\d{1,4}-\d{3}-\d{3}-\d{4}|\d{1,4}-\d{3}-\d{3}-\d{4})',
+        'VIN_NUMBER': "^[^iIoOqQ'-]{10,17}$",
+        'EMAIL_ADDRESS': '^[a-zA-Z0-9._%-+]+@[a-zA-Z0-9._%-]+.[a-zA-Z]{2,6}$',
+        'LATITUDE_LONGITUDE': '^[NS]([0-8][0-9](\.[0-5]\d){2}|90(\.00){2})\040[EW]((0\d\d|1[0-7]\d)(\.[0-5]\d){2}|180(\.00){2})$',
+        'SOCIAL_SECURITY_NUMBER': '^(?!000|.+0{4})(?:\d{9}|\d{3}-\d{2}-\d{4})$',
+        'EIN_number': '^(?:\d{2}-\d{7})$',
+        'passport_NUMBER': '/[0-9]{2}-[0-9]{7}/',
+        'Iv4': '/[0-9]{2}-[0-9]{7}/',
+        'Iv6': '/^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i',
+        'CREDIT_CARD_NUMBER': '/^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i'
+    }
 
-    regex_matches = []
-
+    # # first pass: iterate through all regex_matches
     for search_pattern in regex_patterns:
-        search_cout = 0
-        print('Searching for: ' + str(search_pattern))
 
         for regex_match in re.finditer(re.compile(regex_patterns[search_pattern]), document.text):
             if regex_match:
-                search_cout += 1
+
+                # get position of match
+                span = regex_match.span()
+
+                # token = document[span[0]:span[1]]
+                # print(token)
+
+
                 match_as_string = "{}".format(regex_match.group(0))
-                tup = (search_pattern, match_as_string)
-                regex_matches.append(tup)
 
-        print(str(search_pattern + ' search COMPLETE.'))
-        print('Found ' + str(search_cout) + '\n')
+                # build row
+                row = {'entity_type':search_pattern,
+                    'text_value':match_as_string,
+                    'start_position':span[0],
+                    'end_position':span[1]}
 
-    return regex_matches
+                # save to list for conversion to dataframe
+                new_rows.append(row)
 
-
-# # iterates through document for matches of certain types
-# # entity_types defined in piminer() function
-# # takes an NLP object as input and a list of entity types
-def getNamedEntities(named_entity_types, document):
-    print('Searching for named_entity...')
-
-    valid_ent = re.compile("^[a-zA-Z0-9_]*$")
-    ENTITY_LIST = []
-
+    # # second pass: find all named entities
     for entity in document.ents:
-        # # for now, limit output to the entity types in the list above,, clean output
-        if entity.label_ in named_entity_types:
-            NER_tup = (str(entity.label_).upper(), re.sub('[^A-Za-z0-9]+', ' ', str(entity.text)))
-            ENTITY_LIST.append(NER_tup)
 
-    print('named_entity search COMPLETE.')
-    print('Found ' + str(len(ENTITY_LIST)) + '\n')
-    return ENTITY_LIST
+        row = {'entity_type':str(entity.label_).upper(),
+            'text_value':str(entity.text),
+            'start_position':entity.start_char,
+            'end_position':entity.end_char}
+
+        new_rows.append(row)
+
+    # # return dataframe with results for clustering
+    return pd.DataFrame(new_rows)
 
 
 # # flow control function
@@ -140,7 +147,7 @@ def piminer(input_file):
 
 
     # # breaks files into manageable chunks
-    # # may be suited for a separate function call,
+    # # may be suited for a separate function call
     # # though likely called only once
     if len(text) > 999999:
         text_list = []
@@ -174,43 +181,9 @@ def piminer(input_file):
         # # increment the document chunk
         processing_count += 1
 
-        # # Some print testing
-        # [print(x) for x in getTokens(document)]
-        # [print(x) for x in getChunks(document)]
-        # getChildren(document)
-
-        regex_patterns = {
-            'phone_number': '\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}',
-            'international_phone_number':'(?:[+]\d{1,4}-\d{3}-\d{3}-\d{4}|\d{1,4}-\d{3}-\d{3}-\d{4})',
-            'VIN_number': "^[^iIoOqQ'-]{10,17}$",
-            'email_address': '^[a-zA-Z0-9._%-+]+@[a-zA-Z0-9._%-]+.[a-zA-Z]{2,6}$',
-            'latitude_longitude': '^[NS]([0-8][0-9](\.[0-5]\d){2}|90(\.00){2})\040[EW]((0\d\d|1[0-7]\d)(\.[0-5]\d){2}|180(\.00){2})$',
-            'social_security_number': '^(?!000|.+0{4})(?:\d{9}|\d{3}-\d{2}-\d{4})$',
-            'EIN_number': '^(?:\d{2}-\d{7})$',
-            'passport_number': '/[0-9]{2}-[0-9]{7}/',
-            'Iv4': '/[0-9]{2}-[0-9]{7}/',
-            'Iv6': '/^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i',
-            'credit_card_number': '/^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i',
-            'CA_driver_license': '"^[A-Z]{1}\d{7}$'
-        }
-
-        # # define lists based off of first-pass regex and NER
-        getRegexMatches(regex_patterns, document)
-        [print(x) for x in getRegexMatches(regex_patterns, document)]
-
-        named_entity_types = ['PERSON', # # People, including fictional.
-                        'NORP', # # Nationalities or religious or political groups.
-                        'FAC', # # Buildings, airports, highways, bridges, etc.
-                        'ORG', # # Companies, agencies, institutions, etc.
-                        'GPE', # # Countries, cities, states.
-                        'LOC', # # Non-GPE locations, mountain ranges, bodies of water.
-                        'EVENT', # # Named hurricanes, battles, wars, sports events, etc
-                        'WORK_OF_ART', # # Titles of books, songs, etc.
-                        'LAW', # # Named documents made into laws.
-                        'DATE'] # # Absolute or relative dates or periods.
-
-        getNamedEntities(named_entity_types, document)
-        [print(x) for x in getNamedEntities(named_entity_types, document)]
+        # get dataframe with entity type, entity value, and position
+        frame = getEntities(document)
+        print(frame)
 
 if __name__ == "__main__":
 
