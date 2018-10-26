@@ -156,6 +156,7 @@ def piminer(input_file):
         print('Document split COMPLETE.\n')
     else:
         # # if document under 10000000 chars, just store
+        splits = 1
         text_list = []
         text_list.append(text)
 
@@ -180,7 +181,7 @@ def piminer(input_file):
 
         regex_patterns = {
             'phone_number': '\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}',
-            'international phone_number':'(?:[+]\d{1,4}-\d{3}-\d{3}-\d{4}|\d{1,4}-\d{3}-\d{3}-\d{4})',
+            'international_phone_number':'(?:[+]\d{1,4}-\d{3}-\d{3}-\d{4}|\d{1,4}-\d{3}-\d{3}-\d{4})',
             'VIN_number': "^[^iIoOqQ'-]{10,17}$",
             'email_address': '^[a-zA-Z0-9._%-+]+@[a-zA-Z0-9._%-]+.[a-zA-Z]{2,6}$',
             'latitude_longitude': '^[NS]([0-8][0-9](\.[0-5]\d){2}|90(\.00){2})\040[EW]((0\d\d|1[0-7]\d)(\.[0-5]\d){2}|180(\.00){2})$',
