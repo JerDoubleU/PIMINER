@@ -196,7 +196,7 @@ def piminer(input_file):
 
         # # define lists based off of first-pass regex and NER
         getRegexMatches(regex_patterns, document)
-        # [print(x) for x in getRegexMatches(regex_patterns, document)]
+        [print(x) for x in getRegexMatches(regex_patterns, document)]
 
         named_entity_types = ['PERSON', # # People, including fictional.
                         'NORP', # # Nationalities or religious or political groups.
@@ -210,7 +210,7 @@ def piminer(input_file):
                         'DATE'] # # Absolute or relative dates or periods.
 
         getNamedEntities(named_entity_types, document)
-        # [print(x) for x in getNamedEntities(named_entity_types, document)]
+        [print(x) for x in getNamedEntities(named_entity_types, document)]
 
 if __name__ == "__main__":
 
