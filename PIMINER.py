@@ -8,7 +8,9 @@ import textract # # used to parse PDF files
 import re # # string operations, mostly data cleaning
 import spacy # # industrial strength NLP engine
 import time # used to print timing metrics
+import numpy as np # used to pass dataframes to ML models
 from spacy.symbols import nsubj, VERB
+from sklearn import covariance, cluster # attempt at clustering
 
 # # function to handle input larger than 1000000 character
 # # takes a string (not NLP object) and a list size as an input
@@ -19,42 +21,6 @@ def textSplit(text, size):
         text_splits.append(text[i:i + size])
 
     return text_splits
-
-
-# # get list of single words
-# # takes an NLP object as input
-# # if needed: https://spacy.io/api/annotation#pos-tagging
-def getTokens(document):
-    tokenList = []
-
-    for token in document:
-        tup = (token.text,[token.lemma_, token.pos_, token.tag_, token.dep_,\
-              token.shape_, token.is_alpha, token.is_stop])
-        tokenList.append(tup)
-
-    return tokenList
-
-
-# # get list of noun-chunks from an NLP object
-# # takes an NLP object as input
-def getChunks(document):
-    chunkList = []
-
-    for chunk in document.noun_chunks:
-        tup = (chunk.text, [chunk.root.text, chunk.root.dep_, \
-          chunk.root.head.text])
-        chunkList.append(tup)
-
-    return chunkList
-
-
-# # get list of items that preceed the current token
-# # takes an NLP object as input
-def getChildren(token):
-    childList = []
-
-    print(token.text, token.dep_, token.head.text, token.head.pos_,
-          [child for child in token.children], '\n')
 
 # # takes an NLP object as input
 # # returns a dataframe of position, type, and value
@@ -143,7 +109,10 @@ def getEntities(document):
                 row = {'entity_type':search_pattern,
                     'text_value':match_as_string,
                     'start_position':span[0],
-                    'end_position':span[1]}
+                    'end_position':span[1],
+                    'lefts':"",
+                    'rights':"",
+                    'subtree':""}
 
                 # # save to list for conversion to dataframe
                 new_rows.append(row)
@@ -156,6 +125,25 @@ def getEntities(document):
 
     # # return dataframe with results for clustering
     return pd.DataFrame(new_rows)
+
+
+# # get clusters
+def getCluster(dataframe):
+    # X = np.array(dataframe)
+    #
+    # # Create a graph model
+    # edge_model = covariance.GraphLassoCV()
+    # # # #
+    # # # # Train the model
+    # with np.errstate(invalid='ignore'):
+    #     edge_model.fit(X)
+    #
+    # print(dir(edge_model))
+    # # #
+    # # Build clustering model using Affinity Propagation model
+    # _, labels = cluster.affinity_propagation(edge_model.covariance_)
+    # num_labels = labels.max()
+
 
 # # flow control function
 # # takes a a commandline argument (file)
@@ -227,8 +215,10 @@ def piminer(input_file):
 
         # get dataframe with entity type, entity value, and position
         frame = getEntities(document)
-        # print(frame)
-        # frame.to_csv(str(base) + "_PII_Results.csv")
+        print(frame)
+        frame.to_csv(str(base) + "_PII_Results.csv")
+
+        # getCluster(frame)
 
 
 if __name__ == "__main__":
@@ -241,6 +231,6 @@ if __name__ == "__main__":
     totalTime = time.time()
     # # run puppy, run
     piminer(args.input)
-    
+
     totalTimeEnd = time.time()
     print('piminer COMPLETE: ' + str(totalTimeEnd - totalTime) + ' seconds\n')
