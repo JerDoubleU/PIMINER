@@ -111,9 +111,90 @@ def getEntities(document, regex_input):
     return pd.DataFrame(new_rows)
 
 
-# # flow control function
-# # takes a a commandline argument (file)
-def piminer(input_file, regex_input):
+# # # flow control function
+# # # takes a a commandline argument (file)
+# def piminer(input_file, regex_input):
+#     modelLoadTime = time.time()
+#
+#     # # model = 'en_core_web_lg'
+#     model = 'en_core_web_md'
+#
+#     print('Loading language library: ' + str(model) + '...')
+#     nlp = spacy.load(model)
+#     modelLoadTimeEnd = time.time()
+#
+#     print('Library load COMPLETE: ' + str(modelLoadTimeEnd - modelLoadTime) + ' seconds\n')
+#
+#     # file operstions for naming output
+#     source_file = os.path.basename(input_file)
+#     base = os.path.splitext(source_file)[0]
+#
+#     # # need to make simple file handling more robust
+#     print('Reading file: ' + str(source_file) + '...')
+#     fileReadTime = time.time()
+#
+#     # # create nlp object from input_file
+#     text = str(textract.process(input_file,
+#             method='tesseract',
+#             language='en'))
+#
+#     # # spacy has a limit of 1000000 chars
+#     # # break into multiple files to handle
+#     if len(text) > 999999:
+#         text_list = []
+#
+#         # # break document into fewest possible splits:
+#         splits = math.ceil(len(text)/999999)
+#
+#         print('Document with length ' + str(len(text)) + \
+#             ' must be distributed between ' + str(splits) + ' splits...')
+#
+#         # # add all splits to new list
+#         [text_list.append(x) for x in textSplit(text, math.ceil(len(text)/splits))]
+#         print('Document split COMPLETE.\n')
+#     else:
+#         # # if document under 10000000 chars, just store
+#         splits = 1
+#         text_list = []
+#         text_list.append(text)
+#
+#     # # index the chunks of the file
+#     processing_count = 1
+#
+#     fileReadTimeEnd = time.time()
+#     print('Read COMPLETE: ' + str(fileReadTimeEnd - fileReadTime) + ' seconds\n')
+#
+#     # # process all string chunks
+#     for string_chunk in text_list:
+#
+#
+#         print('Converting file to spacy object: ' + str(source_file) + '...')
+#         print('Part ' + str(processing_count) + ' of ' + str(splits))
+#         spacyObjectTime = time.time()
+#         document = nlp(string_chunk)
+#         spacyObjectTimeEnd = time.time()
+#         print('Convert COMPLETE: ' + str(spacyObjectTimeEnd - spacyObjectTime) + ' seconds\n')
+#
+#         # # increment the document chunk
+#         processing_count += 1
+#
+#         # get dataframe with entity type, entity value, and position
+#         frame = getEntities(document, regex_input)
+#         frame.to_csv(str(base) + "_PII_Results.csv")
+
+
+if __name__ == "__main__":
+
+    # # parse command-line args
+    parser = argparse.ArgumentParser(description='file')
+    parser.add_argument("--input_file", help="Choose the text file to process.")
+    parser.add_argument("--regex_input", help="Choose the text file to process.")
+    args = parser.parse_args()
+
+    totalTime = time.time()
+    # # # run puppy, run
+    # piminer(args.input_file, args.regex_input)
+
     modelLoadTime = time.time()
 
     # # model = 'en_core_web_lg'
@@ -126,7 +207,7 @@ def piminer(input_file, regex_input):
     print('Library load COMPLETE: ' + str(modelLoadTimeEnd - modelLoadTime) + ' seconds\n')
 
     # file operstions for naming output
-    source_file = os.path.basename(input_file)
+    source_file = os.path.basename(args.input_file)
     base = os.path.splitext(source_file)[0]
 
     # # need to make simple file handling more robust
@@ -134,7 +215,7 @@ def piminer(input_file, regex_input):
     fileReadTime = time.time()
 
     # # create nlp object from input_file
-    text = str(textract.process(input_file,
+    text = str(textract.process(args.input_file,
             method='tesseract',
             language='en'))
 
@@ -179,21 +260,8 @@ def piminer(input_file, regex_input):
         processing_count += 1
 
         # get dataframe with entity type, entity value, and position
-        frame = getEntities(document, regex_input)
+        frame = getEntities(document, args.regex_input)
         frame.to_csv(str(base) + "_PII_Results.csv")
-
-
-if __name__ == "__main__":
-
-    # # parse command-line args
-    parser = argparse.ArgumentParser(description='file')
-    parser.add_argument("--input_file", help="Choose the text file to process.")
-    parser.add_argument("--regex_input", help="Choose the text file to process.")
-    args = parser.parse_args()
-
-    totalTime = time.time()
-    # # run puppy, run
-    piminer(args.input_file, args.regex_input)
 
     totalTimeEnd = time.time()
     print('piminer COMPLETE: ' + str(totalTimeEnd - totalTime) + ' seconds\n')
