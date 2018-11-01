@@ -6,9 +6,9 @@ from sklearn import covariance, cluster # attempt at clustering
 from sklearn.cluster import AffinityPropagation
 import pandas as pd
 import numpy as np
-import sklearn.metrics
-# import matplotlib.pyplot as plt
-# from itertools import cycle
+import sklearn.metrics as met
+import matplotlib.pyplot as plt
+from itertools import cycle
 
 
 def getCluster(input_file):
@@ -46,35 +46,34 @@ def getCluster(input_file):
 
     n_clusters_ = len(cluster_centers_indices)
 
-    print('Estimated number of clusters: %d' % n_clusters_)
-    print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels_true, labels))
-    print("Completeness: %0.3f" % metrics.completeness_score(labels_true, labels))
-    print("V-measure: %0.3f" % metrics.v_measure_score(labels_true, labels))
-    print("Adjusted Rand Index: %0.3f"
-          % metrics.adjusted_rand_score(labels_true, labels))
-    print("Adjusted Mutual Information: %0.3f"
-          % metrics.adjusted_mutual_info_score(labels_true, labels))
-    print("Silhouette Coefficient: %0.3f"
-          % metrics.silhouette_score(X, labels, metric='sqeuclidean'))
-
+    # print('Estimated number of clusters: %d' % n_clusters_)
+    # print("Homogeneity: %0.3f" % met.homogeneity_score(labels_true, labels))
+    # print("Completeness: %0.3f" % met.completeness_score(labels_true, labels))
+    # print("V-measure: %0.3f" % met.v_measure_score(labels_true, labels))
+    # print("Adjusted Rand Index: %0.3f"
+    #       % met.adjusted_rand_score(labels_true, labels))
+    # print("Adjusted Mutual Information: %0.3f"
+    #       % met.adjusted_mutual_info_score(labels_true, labels))
+    # print("Silhouette Coefficient: %0.3f"
+    #       % met.silhouette_score(X, labels, metric='sqeuclidean'))
 
     # Plot results
-    # plt.close('all')
-    # plt.figure(1)
-    # plt.clf()
+    plt.close('all')
+    plt.figure(1)
+    plt.clf()
     #
-    # colors = cycle('bgrcmykbgrcmykbgrcmykbgrcmyk')
-    # for k, col in zip(range(n_clusters_), colors):
-    #     class_members = labels == k
-    #     cluster_center = X[cluster_centers_indices[k]]
-    #     plt.plot(X[class_members, 0], X[class_members, 1], col + '.')
-    #     plt.plot(cluster_center[0], cluster_center[1], 'o', markerfacecolor=col,
-    #              markeredgecolor='k', markersize=14)
-    #     for x in X[class_members]:
-    #         plt.plot([cluster_center[0], x[0]], [cluster_center[1], x[1]], col)
-    #
-    # plt.title('Estimated number of clusters: %d' % n_clusters_)
-    # plt.show()
+    colors = cycle('bgrcmykbgrcmykbgrcmykbgrcmyk')
+    for k, col in zip(range(n_clusters_), colors):
+        class_members = labels == k
+        cluster_center = X[cluster_centers_indices[k]]
+        plt.plot(X[class_members, 0], X[class_members, 1], col + '.')
+        plt.plot(cluster_center[0], cluster_center[1], 'o', markerfacecolor=col,
+                 markeredgecolor='k', markersize=14)
+        for x in X[class_members]:
+            plt.plot([cluster_center[0], x[0]], [cluster_center[1], x[1]], col)
+
+    plt.title('Estimated number of clusters: %d' % n_clusters_)
+    plt.show()
 
     # # Create a graph model
     # edge_model = covariance.GraphLassoCV()
