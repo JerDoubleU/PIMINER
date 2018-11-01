@@ -9,7 +9,6 @@ import re # # string operations, mostly data cleaning
 import spacy # # industrial strength NLP engine
 import time # used to print timing metrics
 from spacy.symbols import nsubj, VERB
-# from sklearn import covariance, cluster # attempt at clustering
 
 # # function to handle input larger than 1000000 characters
 # # takes a string (not NLP object) and a list size as an input
