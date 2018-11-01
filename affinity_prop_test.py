@@ -79,17 +79,6 @@ def getCluster(input_file):
     # plt.title('Estimated number of clusters: %d' % n_clusters_)
     # plt.show()
 
-    # # Create a graph model
-    # edge_model = covariance.GraphLassoCV()
-    #
-    # # # # Train the model
-    # with np.errstate(invalid='ignore'):
-    #     edge_model.fit(X)
-
-    # # Build clustering model using Affinity Propagation model
-    # _, labels = cluster.affinity_propagation(edge_model.covariance_)
-    # num_labels = labels.max()
-
 
 if __name__ == "__main__":
 
