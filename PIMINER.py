@@ -5,15 +5,12 @@ import os # # system controls
 import pandas as pd # # dataframe data structure for outputs
 import math # # used to break files into chunks
 import textract # # used to parse PDF files
-
-# # Textract supports the following file types:
-# #    [.csv, .doc , .docx , .eml , .epub, .gif, .jpg, .jpeg, .json,
-# #    .html, .htm, .mp3, .msg, .odt, .ogg, .pdf, .png, .pptx, .ps,
-# #    .rtf, .tiff,  .tif, .txt, .wav, .xlsx, .xls]
-
 import re # # string operations, mostly data cleaning
 import spacy # # industrial strength NLP engine
+import time # used to print timing metrics
+import numpy as np # used to pass dataframes to ML models
 from spacy.symbols import nsubj, VERB
+from sklearn import covariance, cluster # attempt at clustering
 
 # # function to handle input larger than 1000000 character
 # # takes a string (not NLP object) and a list size as an input
@@ -25,123 +22,159 @@ def textSplit(text, size):
 
     return text_splits
 
-
-# # get list of single words
 # # takes an NLP object as input
-# # if needed: https://spacy.io/api/annotation#pos-tagging
-def getTokens(document):
-    tokenList = []
+# # returns a dataframe of position, type, and value
+def getEntities(document):
 
-    for token in document:
-        tup = (token.text,[token.lemma_, token.pos_, token.tag_, token.dep_,\
-              token.shape_, token.is_alpha, token.is_stop])
-        tokenList.append(tup)
+    print('Conducting individual entity searches...\n')
 
-    return tokenList
+    # # list structure to transform into dataframe
+    new_rows = []
 
+    # # merge entities and noun chunks into one token
+    # spans = list(document.ents) + list(document.noun_chunks)
+    # for span in spans:
+    #     span.merge()
 
-# # get list of noun-chunks from an NLP object
-# # takes an NLP object as input
-def getChunks(document):
-    chunkList = []
+    print('Conducting named entity search...')
+    nerTime = time.time()
 
-    for chunk in document.noun_chunks:
-        tup = (chunk.text, [chunk.root.text, chunk.root.dep_, \
-          chunk.root.head.text])
-        chunkList.append(tup)
+    for entity in document.ents:
+        # store the left and right tokens for all NEs
+        lefts = []
+        rights = []
+        subtree = []
+        relations = []
 
-    return chunkList
+        [lefts.append(x) for x in entity.lefts]
+        [rights.append(x) for x in entity.rights]
+        [subtree.append(x) for x in entity.subtree]
 
+        # if entity.dep_ in ('attr', 'dobj'):
+        #     subject = [w for w in entity.head.lefts if w.dep_ == 'nsubj']
+        #     if subject:
+        #         subject = subject[0]
+        #         relations.append((subject, entity))
+        # elif entity.dep_ == 'pobj' and entity.head.dep_ == 'prep':
+        #     relations.append((entity.head.head, entity))
 
-# # get list of items that preceed the current token
-# # takes an NLP object as input
-def getChildren(document):
-    childList = []
+        # print('for', entity.text)
+        # [print(x) for x in realtions]
+        # print()
 
-    for token in document:
+        row = {'entity_type':str(entity.label_).upper(),
+            'text_value':str(entity.text),
+            'start_position':entity.start_char,
+            'end_position':entity.end_char,
+            'lefts':lefts,
+            'rights':rights,
+            'subtree':subtree}
 
-        print(token.text, token.dep_, token.head.text, token.head.pos_,
-              [child for child in token.children], '\n')
+        new_rows.append(row)
 
+    nerTimeEnd = time.time()
+    print('Named entity search COMPLETE: ' + str(nerTimeEnd - nerTime) + ' seconds\n')
 
-# # iterates through a series of regex expressions for matches
-# # supported expressions defined in the piminer() function
-# # takes an NLP object as input and a list of regex patterns
-def getRegexMatches(regex_patterns, document):
+    regexTime = time.time()
 
-    regex_matches = []
+    # # easily extendable regex_patterns
+    regex_patterns = {
+        'PHONE_NUMBER': '\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}',
+        'INTERNATIONAL_PHONE_NUMBER':'(?:[+]\d{1,4}-\d{3}-\d{3}-\d{4}|\d{1,4}-\d{3}-\d{3}-\d{4})',
+        'VIN_NUMBER': "^[^iIoOqQ'-]{10,17}$",
+        'EMAIL_ADDRESS': '^[a-zA-Z0-9._%-+]+@[a-zA-Z0-9._%-]+.[a-zA-Z]{2,6}$',
+        'LATITUDE_LONGITUDE': '^[NS]([0-8][0-9](\.[0-5]\d){2}|90(\.00){2})\040[EW]((0\d\d|1[0-7]\d)(\.[0-5]\d){2}|180(\.00){2})$',
+        'SOCIAL_SECURITY_NUMBER': '^(?!000|.+0{4})(?:\d{9}|\d{3}-\d{2}-\d{4})$',
+        'EIN_number': '^(?:\d{2}-\d{7})$',
+        'passport_NUMBER': '/[0-9]{2}-[0-9]{7}/',
+        'Iv4': '/[0-9]{2}-[0-9]{7}/',
+        'Iv6': '/^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i',
+        'CREDIT_CARD_NUMBER': '/^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i'
+    }
 
+    print('Conducting regex search...')
     for search_pattern in regex_patterns:
-        search_cout = 0
-        print('Searching for: ' + str(search_pattern))
 
         for regex_match in re.finditer(re.compile(regex_patterns[search_pattern]), document.text):
             if regex_match:
-                search_cout += 1
+
+                # # get position of match
+                # # not sure of this is correct,
+                # # pulling from the document text, not the doc object
+                span = regex_match.span()
+
                 match_as_string = "{}".format(regex_match.group(0))
-                tup = (search_pattern, match_as_string)
-                regex_matches.append(tup)
 
-        print(str(search_pattern + ' search COMPLETE.'))
-        print('Found ' + str(search_cout) + '\n')
+                # # build row
+                row = {'entity_type':search_pattern,
+                    'text_value':match_as_string,
+                    'start_position':span[0],
+                    'end_position':span[1],
+                    'lefts':"",
+                    'rights':"",
+                    'subtree':""}
 
-    return regex_matches
+                # # save to list for conversion to dataframe
+                new_rows.append(row)
+
+    regexTimeEnd = time.time()
+    print('Regex search COMPLETE: ' + str(regexTimeEnd - regexTime) + ' seconds\n')
+
+    print('Found ' + str(len(new_rows)) + ' total entities...')
+    print('Individual entity search COMPLETE.\n')
+
+    # # return dataframe with results for clustering
+    return pd.DataFrame(new_rows)
 
 
-# # iterates through document for matches of certain types
-# # entity_types defined in piminer() function
-# # takes an NLP object as input and a list of entity types
-def getNamedEntities(named_entity_types, document):
-    print('Searching for named_entity...')
-
-    valid_ent = re.compile("^[a-zA-Z0-9_]*$")
-    ENTITY_LIST = []
-
-    for entity in document.ents:
-        # # for now, limit output to the entity types in the list above,, clean output
-        if entity.label_ in named_entity_types:
-            NER_tup = (str(entity.label_).upper(), re.sub('[^A-Za-z0-9]+', ' ', str(entity.text)))
-            ENTITY_LIST.append(NER_tup)
-
-    print('named_entity search COMPLETE.')
-    print('Found ' + str(len(ENTITY_LIST)) + '\n')
-    return ENTITY_LIST
+# # get clusters
+def getCluster(dataframe):
+    # X = np.array(dataframe)
+    #
+    # # Create a graph model
+    # edge_model = covariance.GraphLassoCV()
+    # # # #
+    # # # # Train the model
+    # with np.errstate(invalid='ignore'):
+    #     edge_model.fit(X)
+    #
+    # print(dir(edge_model))
+    # # #
+    # # Build clustering model using Affinity Propagation model
+    # _, labels = cluster.affinity_propagation(edge_model.covariance_)
+    # num_labels = labels.max()
 
 
 # # flow control function
 # # takes a a commandline argument (file)
 def piminer(input_file):
 
+    modelLoadTime = time.time()
+
     # # model = 'en_core_web_lg'
     model = 'en_core_web_md'
+
     print('Loading language library: ' + str(model) + '...')
-
-    # # load NLP library object
     nlp = spacy.load(model)
-    print('Library load COMPLETE.\n')
+    modelLoadTimeEnd = time.time()
 
-    # # file operations to manage printing
-    # # probably need to get full path as well...
+    print('Library load COMPLETE: ' + str(modelLoadTimeEnd - modelLoadTime) + ' seconds\n')
+
+    # file operstions for naming output
     source_file = os.path.basename(input_file)
     base = os.path.splitext(source_file)[0]
 
     # # need to make simple file handling more robust
-    # # it may be the case that this is better suited for another script,
-    # # or should be called from main. TDB.
-
     print('Reading file: ' + str(source_file) + '...')
+    fileReadTime = time.time()
 
     # # create nlp object from input_file
     text = str(textract.process(input_file,
             method='tesseract',
             language='en'))
 
-    print('Read COMPLETE.\n')
-
-
-    # # breaks files into manageable chunks
-    # # may be suited for a separate function call,
-    # # though likely called only once
+    # # spacy has a limit of 1000000 chars
+    # # break into multiple files to handle
     if len(text) > 999999:
         text_list = []
 
@@ -163,54 +196,30 @@ def piminer(input_file):
     # # index the chunks of the file
     processing_count = 1
 
+    fileReadTimeEnd = time.time()
+    print('Read COMPLETE: ' + str(fileReadTimeEnd - fileReadTime) + ' seconds\n')
+
     # # process all string chunks
     for string_chunk in text_list:
 
+
         print('Converting file to spacy object: ' + str(source_file) + '...')
         print('Part ' + str(processing_count) + ' of ' + str(splits))
+        spacyObjectTime = time.time()
         document = nlp(string_chunk)
-        print('Convert COMPLETE.\n')
+        spacyObjectTimeEnd = time.time()
+        print('Convert COMPLETE: ' + str(spacyObjectTimeEnd - spacyObjectTime) + ' seconds\n')
 
         # # increment the document chunk
         processing_count += 1
 
-        # # Some print testing
-        # [print(x) for x in getTokens(document)]
-        # [print(x) for x in getChunks(document)]
-        # getChildren(document)
+        # get dataframe with entity type, entity value, and position
+        frame = getEntities(document)
+        print(frame)
+        frame.to_csv(str(base) + "_PII_Results.csv")
 
-        regex_patterns = {
-            'phone_number': '\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}',
-            'international_phone_number':'(?:[+]\d{1,4}-\d{3}-\d{3}-\d{4}|\d{1,4}-\d{3}-\d{3}-\d{4})',
-            'VIN_number': "^[^iIoOqQ'-]{10,17}$",
-            'email_address': '^[a-zA-Z0-9._%-+]+@[a-zA-Z0-9._%-]+.[a-zA-Z]{2,6}$',
-            'latitude_longitude': '^[NS]([0-8][0-9](\.[0-5]\d){2}|90(\.00){2})\040[EW]((0\d\d|1[0-7]\d)(\.[0-5]\d){2}|180(\.00){2})$',
-            'social_security_number': '^(?!000|.+0{4})(?:\d{9}|\d{3}-\d{2}-\d{4})$',
-            'EIN_number': '^(?:\d{2}-\d{7})$',
-            'passport_number': '/[0-9]{2}-[0-9]{7}/',
-            'Iv4': '/[0-9]{2}-[0-9]{7}/',
-            'Iv6': '/^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i',
-            'credit_card_number': '/^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i',
-            'CA_driver_license': '"^[A-Z]{1}\d{7}$'
-        }
+        # getCluster(frame)
 
-        # # define lists based off of first-pass regex and NER
-        getRegexMatches(regex_patterns, document)
-        [print(x) for x in getRegexMatches(regex_patterns, document)]
-
-        named_entity_types = ['PERSON', # # People, including fictional.
-                        'NORP', # # Nationalities or religious or political groups.
-                        'FAC', # # Buildings, airports, highways, bridges, etc.
-                        'ORG', # # Companies, agencies, institutions, etc.
-                        'GPE', # # Countries, cities, states.
-                        'LOC', # # Non-GPE locations, mountain ranges, bodies of water.
-                        'EVENT', # # Named hurricanes, battles, wars, sports events, etc
-                        'WORK_OF_ART', # # Titles of books, songs, etc.
-                        'LAW', # # Named documents made into laws.
-                        'DATE'] # # Absolute or relative dates or periods.
-
-        getNamedEntities(named_entity_types, document)
-        [print(x) for x in getNamedEntities(named_entity_types, document)]
 
 if __name__ == "__main__":
 
@@ -219,5 +228,9 @@ if __name__ == "__main__":
     parser.add_argument("input", help="Choose the text file to process.")
     args = parser.parse_args()
 
+    totalTime = time.time()
     # # run puppy, run
     piminer(args.input)
+
+    totalTimeEnd = time.time()
+    print('piminer COMPLETE: ' + str(totalTimeEnd - totalTime) + ' seconds\n')
