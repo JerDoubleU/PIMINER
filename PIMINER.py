@@ -44,11 +44,6 @@ def getEntities(document, regex_input):
     # # list structure to transform into dataframe
     new_rows = []
 
-    # # merge entities and noun chunks into one token
-    # spans = list(document.ents) + list(document.noun_chunks)
-    # for span in spans:
-    #     span.merge()
-
     print('Conducting named entity search...')
     nerTime = time.time()
 
@@ -62,18 +57,6 @@ def getEntities(document, regex_input):
         [lefts.append(x) for x in entity.lefts]
         [rights.append(x) for x in entity.rights]
         [subtree.append(x) for x in entity.subtree]
-
-        # if entity.dep_ in ('attr', 'dobj'):
-        #     subject = [w for w in entity.head.lefts if w.dep_ == 'nsubj']
-        #     if subject:
-        #         subject = subject[0]
-        #         relations.append((subject, entity))
-        # elif entity.dep_ == 'pobj' and entity.head.dep_ == 'prep':
-        #     relations.append((entity.head.head, entity))
-
-        # print('for', entity.text)
-        # [print(x) for x in realtions]
-        # print()
 
         row = {'entity_type':str(entity.label_).upper(),
             'text_value':str(entity.text),
