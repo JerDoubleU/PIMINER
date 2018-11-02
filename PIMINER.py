@@ -34,6 +34,19 @@ def regexPatternsFromFile(regex_input):
     return pattern_dict
 
 
+# # function to find syntactic in sentence for possible relations
+def possibleRelations(sentence):
+
+    # # subtree: a sequence of all the token's syntactic descendants.
+
+    subtree = []
+
+    [subtree.append(str(x.ent_type_).strip() + " : " + str(x).strip())\
+        for x in sentence.subtree if str(x.ent_type_).strip() != "" and str(x).strip() != ""]
+
+    return "\n".join(subtree)
+
+
 # # takes an NLP object and regex pattern file as input
 # # returns a dataframe of position, type, and value
 def entitySearch(document, regex_input):
@@ -45,7 +58,7 @@ def entitySearch(document, regex_input):
     new_rows = []
 
     # # get regex patterns from file (more easily extendable)
-    regex_patterns = regexPatternsFromFile(regex_input)
+    regex_patterns_dict = regexPatternsFromFile(regex_input)
 
     # # iterating through sentences seems to be faster
     for sentence in document.sents:
@@ -58,18 +71,20 @@ def entitySearch(document, regex_input):
                     'entity_type':str(x.label_).upper(),
                     'text_value':str(x.text),
                     'raw_sentence':str(x.sent),
-                    'sentence_position':x.sent.start
+                    'sentence_position':x.sent.start,
+                    'sentence)_root':sentence.root,
+                    'possible_dependents': possibleRelations(sentence)
                     }) for x in entity_list]
 
 
-        for search_pattern in regex_patterns:
+        for search_pattern in regex_patterns_dict:
 
             # # need to declare the string each time, not sure why
             # # provide two sentences just in case this helps matching
             plaintext_sent = sentence.text
             cleaned_sentence = re.sub('\W+',' ', sentence.text.strip())
 
-            regex = 'r' + regex_patterns[search_pattern]
+            regex = 'r' + regex_patterns_dict[search_pattern]
 
             # findall returns  list
             plaintext_matches = re.findall(regex, plaintext_sent)
@@ -79,7 +94,9 @@ def entitySearch(document, regex_input):
                     'entity_type':str(search_pattern),
                     'text_value':str(x),
                     'raw_sentence':str(sentence.text),
-                    'sentence_position':sentence.start
+                    'sentence_position':sentence.start,
+                    'sentence)_root':sentence.root,
+                    'possible_dependents': possibleRelations(sentence)
                 }) for x in plaintext_matches if len(x) > 0]
 
             cleaned_text_matches = re.findall(regex, cleaned_sentence)
@@ -89,7 +106,9 @@ def entitySearch(document, regex_input):
                     'entity_type':str(search_pattern),
                     'text_value':str(x),
                     'raw_sentence':str(sentence.text),
-                    'sentence_position':sentence.start
+                    'sentence_position':sentence.start,
+                    'sentence)_root':sentence.root,
+                    'possible_dependents': possibleRelations(sentence)
                 }) for x in cleaned_text_matches if len(x) > 0]
 
     entitySearchTimeEnd= time.time()
