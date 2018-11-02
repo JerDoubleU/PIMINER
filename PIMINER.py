@@ -41,10 +41,10 @@ def possibleRelations(sentence):
 
     subtree = []
 
-    [subtree.append(str(x.ent_type_).strip() + " : " + str(x).strip())\
+    [subtree.append(str(x.ent_type_).strip() + ":" + str(x).strip())\
         for x in sentence.subtree if str(x.ent_type_).strip() != "" and str(x).strip() != ""]
 
-    return "\n".join(subtree)
+    return subtree
 
 
 # # takes an NLP object and regex pattern file as input
@@ -72,8 +72,9 @@ def entitySearch(document, regex_input):
                     'text_value':str(x.text),
                     'raw_sentence':str(x.sent),
                     'sentence_position':x.sent.start,
-                    'sentence)_root':sentence.root,
-                    'possible_dependents': possibleRelations(sentence)
+                    'sentence_root':sentence.root,
+                    'possible_dependents': ", ".join(possibleRelations(sentence)),
+                    'n_possible_dependents': len(possibleRelations(sentence))
                     }) for x in entity_list]
 
 
@@ -95,8 +96,9 @@ def entitySearch(document, regex_input):
                     'text_value':str(x),
                     'raw_sentence':str(sentence.text),
                     'sentence_position':sentence.start,
-                    'sentence)_root':sentence.root,
-                    'possible_dependents': possibleRelations(sentence)
+                    'sentence_root':sentence.root,
+                    'possible_dependents': ", ".join(possibleRelations(sentence)),
+                    'n_possible_dependents': len(possibleRelations(sentence))
                 }) for x in plaintext_matches if len(x) > 0]
 
             cleaned_text_matches = re.findall(regex, cleaned_sentence)
@@ -107,8 +109,9 @@ def entitySearch(document, regex_input):
                     'text_value':str(x),
                     'raw_sentence':str(sentence.text),
                     'sentence_position':sentence.start,
-                    'sentence)_root':sentence.root,
-                    'possible_dependents': possibleRelations(sentence)
+                    'sentence_root':sentence.root,
+                    'possible_dependents': ", ".join(possibleRelations(sentence)),
+                    'n_possible_dependents': len(possibleRelations(sentence))
                 }) for x in cleaned_text_matches if len(x) > 0]
 
     entitySearchTimeEnd= time.time()
