@@ -25,7 +25,7 @@ from itertools import cycle
 ## `piminer.py`
 The main function is a CLI tool [`piminer.py`](piminer.py). The function is called in the following way from a shell window:
 
-    `./piminer --input_file [your file] --regex_input [regex patterns]`
+    ./piminer --input_file [your file] --regex_input [regex patterns]
 
 ## Disclaimer
 This repository is intended only as a way for me to organize my thoughts and my work.
