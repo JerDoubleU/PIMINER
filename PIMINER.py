@@ -59,11 +59,11 @@ def getEntities(document, regex_input):
 
         row = {'entity_type':str(entity.label_).upper(),
             'text_value':str(entity.text),
-            'start_position':entity.start_char,
-            'end_position':entity.end_char,
-            'lefts':lefts,
-            'rights':rights,
-            'subtree':subtree}
+            'start_position':entity.start_char}
+            # 'end_position':entity.end_char,
+            # 'lefts':lefts,
+            # 'rights':rights,
+            # 'subtree':subtree}
 
         new_rows.append(row)
 
@@ -91,11 +91,11 @@ def getEntities(document, regex_input):
                 # # build row
                 row = {'entity_type':search_pattern,
                     'text_value':match_as_string,
-                    'start_position':span[0],
-                    'end_position':span[1],
-                    'lefts':"",
-                    'rights':"",
-                    'subtree':""}
+                    'start_position':span[0]}
+                    # 'end_position':span[1]}
+                    # 'lefts':"",
+                    # 'rights':"",
+                    # 'subtree':""}
 
                 # # save to list for conversion to dataframe
                 new_rows.append(row)
@@ -184,7 +184,7 @@ if __name__ == "__main__":
 
         # get dataframe with entity type, entity value, and position
         frame = getEntities(document, args.regex_input)
-        frame.to_csv(str(base) + "_PII_Results.csv")
+        frame.to_csv("results_for_" + str(base) + ".csv")
 
     totalTimeEnd = time.time()
     print('piminer COMPLETE: ' + str(totalTimeEnd - totalTime) + ' seconds\n')
