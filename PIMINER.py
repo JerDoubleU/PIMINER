@@ -29,31 +29,9 @@ def regexPatternsFromFile(regex_input):
 
     for line in pattenFile:
         row = line.split(';')
-        pattern_dict[row[0]] = row[1]
+        pattern_dict[row[0]] = row[1].strip()
 
     return pattern_dict
-
-
-
-# # function to build rows of a dataframe
-def buildRows(entity_list):
-
-    # print(type(entity_list[0]))
-
-    if type(entity_list[0]) == spacy.tokens.span.Span:
-        for entity in entity_list:
-            row = {
-                'entity_type':str(entity.label_).upper(),
-                'text_value':str(entity.text),
-                'sentence':str(entity.sent),
-                'sentence_position':entity.sent.start
-                }
-
-                # entity.lefts
-                # entity.rights
-                # entity.subtree
-
-    return row
 
 
 # # takes an NLP object and regex pattern file as input
@@ -73,26 +51,71 @@ def entitySearch(document, regex_input):
         # check if sentence contains named entities
         if sentence.ents:
             entity_list = sentence.ents
-            new_rows.append(buildRows(entity_list))
+            [new_rows.append({
+                    'entity_type':str(x.label_).upper(),
+                    'text_value':str(x.text),
+                    'sentence':str(x.sent),
+                    'sentence_position':x.sent.start
+                    }) for x in entity_list]
 
         # print(dir(sentence.as_doc()))
 
         for search_pattern in regex_patterns:
-            compiled_pattern = re.compile(regex_patterns[search_pattern])
 
-            if compiled_pattern.match(sentence.text):
-                match_as_string = "{}".format(compiled_pattern.match(sentence.text).group(0))
+            plaintext_sent = sentence.text
+            cleaned_sentence = re.sub('\W+',' ', sentence.text)
 
-                row = {
+            regex = 'r' + regex_patterns[search_pattern]
+
+            plaintext_matches = re.findall(regex, plaintext_sent)
+
+            [print(
+                {
                     'entity_type':str(search_pattern),
-                    'text_value':str(match_as_string),
+                    'text_value':str(x),
                     'sentence':str(sentence.text),
                     'sentence_position':sentence.start
-                }
+                },'\n') for x in plaintext_matches if len(x) > 0]
 
-                print(row)
+            cleaned_text_matches = re.findall(regex, cleaned_sentence)
 
-                new_rows.append(row)
+            [print(
+                {
+                    'entity_type':str(search_pattern),
+                    'text_value':str(x),
+                    'sentence':str(sentence.text),
+                    'sentence_position':sentence.start
+                },'\n') for x in cleaned_text_matches if len(x) > 0]
+
+
+            #
+            # if compiled_pattern.match(plaintext_sent):
+            #     match_as_string = "{}".format(compiled_pattern.match(plaintext_sent).group(0))
+            #
+            #     row = {
+            #         'entity_type':str(search_pattern),
+            #         'text_value':str(match_as_string),
+            #         'sentence':str(sentence.text),
+            #         'sentence_position':sentence.start
+            #     }
+            #
+            #     print(row)
+            #
+            #     new_rows.append(row)
+
+            # elif compiled_pattern.match(sentence.text):
+            #     match_as_string = "{}".format(compiled_pattern.match(sentence.text).group(0))
+            #
+            #     row = {
+            #         'entity_type':str(search_pattern),
+            #         'text_value':str(match_as_string),
+            #         'sentence':str(sentence.text),
+            #         'sentence_position':sentence.start
+            #     }
+            #
+            #     print(row)
+            #
+            #     new_rows.append(row)
 
 
 
