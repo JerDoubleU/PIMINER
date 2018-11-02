@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import argparse # # inorder to port to command line
 import os # # system controls
@@ -8,11 +8,9 @@ import textract # # used to parse PDF files
 import re # # string operations, mostly data cleaning
 import spacy # # industrial strength NLP engine
 import time # used to print timing metrics
-import numpy as np # used to pass dataframes to ML models
 from spacy.symbols import nsubj, VERB
-from sklearn import covariance, cluster # attempt at clustering
 
-# # function to handle input larger than 1000000 character
+# # function to handle input larger than 1000000 characters
 # # takes a string (not NLP object) and a list size as an input
 def textSplit(text, size):
     text_splits = []
@@ -22,19 +20,28 @@ def textSplit(text, size):
 
     return text_splits
 
+
+# # function to parse regex input
+def regexPatternsFromFile(regex_input):
+    pattenFile = open(regex_input, 'r')
+
+    pattern_dict = {}
+
+    for line in pattenFile:
+        row = line.split(';')
+        pattern_dict[row[0]] = row[1]
+
+    return pattern_dict
+
+
 # # takes an NLP object as input
 # # returns a dataframe of position, type, and value
-def getEntities(document):
+def getEntities(document, regex_input):
 
     print('Conducting individual entity searches...\n')
 
     # # list structure to transform into dataframe
     new_rows = []
-
-    # # merge entities and noun chunks into one token
-    # spans = list(document.ents) + list(document.noun_chunks)
-    # for span in spans:
-    #     span.merge()
 
     print('Conducting named entity search...')
     nerTime = time.time()
@@ -49,18 +56,6 @@ def getEntities(document):
         [lefts.append(x) for x in entity.lefts]
         [rights.append(x) for x in entity.rights]
         [subtree.append(x) for x in entity.subtree]
-
-        # if entity.dep_ in ('attr', 'dobj'):
-        #     subject = [w for w in entity.head.lefts if w.dep_ == 'nsubj']
-        #     if subject:
-        #         subject = subject[0]
-        #         relations.append((subject, entity))
-        # elif entity.dep_ == 'pobj' and entity.head.dep_ == 'prep':
-        #     relations.append((entity.head.head, entity))
-
-        # print('for', entity.text)
-        # [print(x) for x in realtions]
-        # print()
 
         row = {'entity_type':str(entity.label_).upper(),
             'text_value':str(entity.text),
@@ -77,20 +72,8 @@ def getEntities(document):
 
     regexTime = time.time()
 
-    # # easily extendable regex_patterns
-    regex_patterns = {
-        'PHONE_NUMBER': '\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}',
-        'INTERNATIONAL_PHONE_NUMBER':'(?:[+]\d{1,4}-\d{3}-\d{3}-\d{4}|\d{1,4}-\d{3}-\d{3}-\d{4})',
-        'VIN_NUMBER': "^[^iIoOqQ'-]{10,17}$",
-        'EMAIL_ADDRESS': '^[a-zA-Z0-9._%-+]+@[a-zA-Z0-9._%-]+.[a-zA-Z]{2,6}$',
-        'LATITUDE_LONGITUDE': '^[NS]([0-8][0-9](\.[0-5]\d){2}|90(\.00){2})\040[EW]((0\d\d|1[0-7]\d)(\.[0-5]\d){2}|180(\.00){2})$',
-        'SOCIAL_SECURITY_NUMBER': '^(?!000|.+0{4})(?:\d{9}|\d{3}-\d{2}-\d{4})$',
-        'EIN_number': '^(?:\d{2}-\d{7})$',
-        'passport_NUMBER': '/[0-9]{2}-[0-9]{7}/',
-        'Iv4': '/[0-9]{2}-[0-9]{7}/',
-        'Iv6': '/^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i',
-        'CREDIT_CARD_NUMBER': '/^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i'
-    }
+    # # get regex patterns from file (more easily extendable)
+    regex_patterns = regexPatternsFromFile(regex_input)
 
     print('Conducting regex search...')
     for search_pattern in regex_patterns:
@@ -127,28 +110,15 @@ def getEntities(document):
     return pd.DataFrame(new_rows)
 
 
-# # get clusters
-def getCluster(dataframe):
-    # X = np.array(dataframe)
-    #
-    # # Create a graph model
-    # edge_model = covariance.GraphLassoCV()
-    # # # #
-    # # # # Train the model
-    # with np.errstate(invalid='ignore'):
-    #     edge_model.fit(X)
-    #
-    # print(dir(edge_model))
-    # # #
-    # # Build clustering model using Affinity Propagation model
-    # _, labels = cluster.affinity_propagation(edge_model.covariance_)
-    # num_labels = labels.max()
+if __name__ == "__main__":
 
+    # # parse command-line args
+    parser = argparse.ArgumentParser(description='file')
+    parser.add_argument("--input_file", help="Choose the text file to process.")
+    parser.add_argument("--regex_input", help="Choose the text file to process.")
+    args = parser.parse_args()
 
-# # flow control function
-# # takes a a commandline argument (file)
-def piminer(input_file):
-
+    totalTime = time.time()
     modelLoadTime = time.time()
 
     # # model = 'en_core_web_lg'
@@ -161,7 +131,7 @@ def piminer(input_file):
     print('Library load COMPLETE: ' + str(modelLoadTimeEnd - modelLoadTime) + ' seconds\n')
 
     # file operstions for naming output
-    source_file = os.path.basename(input_file)
+    source_file = os.path.basename(args.input_file)
     base = os.path.splitext(source_file)[0]
 
     # # need to make simple file handling more robust
@@ -169,7 +139,7 @@ def piminer(input_file):
     fileReadTime = time.time()
 
     # # create nlp object from input_file
-    text = str(textract.process(input_file,
+    text = str(textract.process(args.input_file,
             method='tesseract',
             language='en'))
 
@@ -202,7 +172,6 @@ def piminer(input_file):
     # # process all string chunks
     for string_chunk in text_list:
 
-
         print('Converting file to spacy object: ' + str(source_file) + '...')
         print('Part ' + str(processing_count) + ' of ' + str(splits))
         spacyObjectTime = time.time()
@@ -214,23 +183,8 @@ def piminer(input_file):
         processing_count += 1
 
         # get dataframe with entity type, entity value, and position
-        frame = getEntities(document)
-        print(frame)
+        frame = getEntities(document, args.regex_input)
         frame.to_csv(str(base) + "_PII_Results.csv")
-
-        # getCluster(frame)
-
-
-if __name__ == "__main__":
-
-    # # parse command-line args
-    parser = argparse.ArgumentParser(description='file')
-    parser.add_argument("input", help="Choose the text file to process.")
-    args = parser.parse_args()
-
-    totalTime = time.time()
-    # # run puppy, run
-    piminer(args.input)
 
     totalTimeEnd = time.time()
     print('piminer COMPLETE: ' + str(totalTimeEnd - totalTime) + ' seconds\n')
