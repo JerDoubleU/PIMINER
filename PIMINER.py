@@ -37,8 +37,9 @@ def regexPatternsFromFile(regex_input):
 # # takes an NLP object and regex pattern file as input
 # # returns a dataframe of position, type, and value
 def entitySearch(document, regex_input):
+    entitySearchTime= time.time()
 
-    print('Conducting entity searches...\n')
+    print('Conducting entity searches...')
 
     # # list structure to transform into dataframe
     new_rows = []
@@ -46,80 +47,54 @@ def entitySearch(document, regex_input):
     # # get regex patterns from file (more easily extendable)
     regex_patterns = regexPatternsFromFile(regex_input)
 
+    # # iterating through sentences seems to be faster
     for sentence in document.sents:
 
-        # check if sentence contains named entities
+        # # check if sentence contains named entities
+        # # if yes, add these entities to the list
         if sentence.ents:
             entity_list = sentence.ents
             [new_rows.append({
                     'entity_type':str(x.label_).upper(),
                     'text_value':str(x.text),
-                    'sentence':str(x.sent),
+                    'raw_sentence':str(x.sent),
                     'sentence_position':x.sent.start
                     }) for x in entity_list]
 
-        # print(dir(sentence.as_doc()))
 
         for search_pattern in regex_patterns:
 
+            # # need to declare the string each time, not sure why
+            # # provide two sentences just in case this helps matching
             plaintext_sent = sentence.text
-            cleaned_sentence = re.sub('\W+',' ', sentence.text)
+            cleaned_sentence = re.sub('\W+',' ', sentence.text.strip())
 
             regex = 'r' + regex_patterns[search_pattern]
 
+            # findall returns  list
             plaintext_matches = re.findall(regex, plaintext_sent)
 
-            [print(
+            [new_rows.append(
                 {
                     'entity_type':str(search_pattern),
                     'text_value':str(x),
-                    'sentence':str(sentence.text),
+                    'raw_sentence':str(sentence.text),
                     'sentence_position':sentence.start
-                },'\n') for x in plaintext_matches if len(x) > 0]
+                }) for x in plaintext_matches if len(x) > 0]
 
             cleaned_text_matches = re.findall(regex, cleaned_sentence)
 
-            [print(
+            [new_rows.append(
                 {
                     'entity_type':str(search_pattern),
                     'text_value':str(x),
-                    'sentence':str(sentence.text),
+                    'raw_sentence':str(sentence.text),
                     'sentence_position':sentence.start
-                },'\n') for x in cleaned_text_matches if len(x) > 0]
+                }) for x in cleaned_text_matches if len(x) > 0]
 
-
-            #
-            # if compiled_pattern.match(plaintext_sent):
-            #     match_as_string = "{}".format(compiled_pattern.match(plaintext_sent).group(0))
-            #
-            #     row = {
-            #         'entity_type':str(search_pattern),
-            #         'text_value':str(match_as_string),
-            #         'sentence':str(sentence.text),
-            #         'sentence_position':sentence.start
-            #     }
-            #
-            #     print(row)
-            #
-            #     new_rows.append(row)
-
-            # elif compiled_pattern.match(sentence.text):
-            #     match_as_string = "{}".format(compiled_pattern.match(sentence.text).group(0))
-            #
-            #     row = {
-            #         'entity_type':str(search_pattern),
-            #         'text_value':str(match_as_string),
-            #         'sentence':str(sentence.text),
-            #         'sentence_position':sentence.start
-            #     }
-            #
-            #     print(row)
-            #
-            #     new_rows.append(row)
-
-
-
-    # [print(x) for x in new_rows]
+    entitySearchTimeEnd= time.time()
+    print('FOUND: ', len(new_rows))
+    print('Entity searches COMPLETE: ' + str(modelLoadTimeEnd - modelLoadTime) + ' seconds\n')
 
     return pd.DataFrame(new_rows)
 

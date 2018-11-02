@@ -1,4 +1,4 @@
-,entity_type,sentence,sentence_position,text_value
+,entity_type,raw_sentence,sentence_position,text_value
 0,ORG,FLORIDA CIVIL DIVISION IN RE:  ,12,FLORIDA CIVIL DIVISION
 1,PERSON,FLORIDA CIVIL DIVISION IN RE:  ,12, 
 2,WORK_OF_ART,ENOLE PROGENY\n\nTOBACCO LITIGATION        Case.,19,ENOLE PROGENY\n\nTOBACCO LITIGATION        Case
@@ -42,143 +42,203 @@
 40,ORG,"CHRISTOPHER J. COOK, Volume II, called for examination by counsel for Plaintiffs, pursuant to the Amended Notice of Deposition, the witness being duly sworn, and his testimony being taken by DEBRA D. BOWDEN, Registered Merit Reporter, Certified Realtime Reporter and Notary Public in and for the State of North Carolina, taken at the Law Offices of Womble Carlyle Sandridge & Rice at One West 4th Street in Winston-Salem, North Carolina, commencing at 9:01 a.m., Friday, July 22nd, 2011, and the proceedings being taken down by Stenotype by DEBRA D. BOWDEN, RMR, CRR, and transcribed personally by her.\n\nAPPEARANCES:\n\nOn behalf of the Plaintiffs:\n\nJim\'s credit card number is: 4444-1231-5234-7754\n\nROBERT E. SHIELDS, ESQUIRE\n\nDoffermyre Shields Canfield & Knowles, LLC\n\n1355 Peachtree Street\n\nSuite 1600\n\nAtlanta, Georgia",142,ESQUIRE\n\nDoffermyre Shields Canfield & Knowles
 41,ORG,"CHRISTOPHER J. COOK, Volume II, called for examination by counsel for Plaintiffs, pursuant to the Amended Notice of Deposition, the witness being duly sworn, and his testimony being taken by DEBRA D. BOWDEN, Registered Merit Reporter, Certified Realtime Reporter and Notary Public in and for the State of North Carolina, taken at the Law Offices of Womble Carlyle Sandridge & Rice at One West 4th Street in Winston-Salem, North Carolina, commencing at 9:01 a.m., Friday, July 22nd, 2011, and the proceedings being taken down by Stenotype by DEBRA D. BOWDEN, RMR, CRR, and transcribed personally by her.\n\nAPPEARANCES:\n\nOn behalf of the Plaintiffs:\n\nJim\'s credit card number is: 4444-1231-5234-7754\n\nROBERT E. SHIELDS, ESQUIRE\n\nDoffermyre Shields Canfield & Knowles, LLC\n\n1355 Peachtree Street\n\nSuite 1600\n\nAtlanta, Georgia",142,Peachtree Street\n\nSuite 1600\n\nAtlanta
 42,GPE,"CHRISTOPHER J. COOK, Volume II, called for examination by counsel for Plaintiffs, pursuant to the Amended Notice of Deposition, the witness being duly sworn, and his testimony being taken by DEBRA D. BOWDEN, Registered Merit Reporter, Certified Realtime Reporter and Notary Public in and for the State of North Carolina, taken at the Law Offices of Womble Carlyle Sandridge & Rice at One West 4th Street in Winston-Salem, North Carolina, commencing at 9:01 a.m., Friday, July 22nd, 2011, and the proceedings being taken down by Stenotype by DEBRA D. BOWDEN, RMR, CRR, and transcribed personally by her.\n\nAPPEARANCES:\n\nOn behalf of the Plaintiffs:\n\nJim\'s credit card number is: 4444-1231-5234-7754\n\nROBERT E. SHIELDS, ESQUIRE\n\nDoffermyre Shields Canfield & Knowles, LLC\n\n1355 Peachtree Street\n\nSuite 1600\n\nAtlanta, Georgia",142,Georgia
-43,PRODUCT,30309\n\n(404),290,30309\n\n(404
-44,CARDINAL,881-8900\n\n(404,292,881
-45,CARDINAL,") 881-3007 (Fax)\n\nrshields6dsckd.com\n\nBRUCE R. ANDERSON, JR",295,881
-46,PERSON,") 881-3007 (Fax)\n\nrshields6dsckd.com\n\nBRUCE R. ANDERSON, JR",295,Fax)\n\nrshields6dsckd.com\n\nBRUCE R. ANDERSON
-47,PERSON,") 881-3007 (Fax)\n\nrshields6dsckd.com\n\nBRUCE R. ANDERSON, JR",295,JR
-48,PERSON,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,ESQUIRE Terrell
-49,ORG,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,Hogan Ellis Yegelwel
-50,GPE,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,P.A.
-51,CARDINAL,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,233
-52,LOC,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,East Bay
-53,ORDINAL,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,8th
-54,GPE,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,Floor Jacksonville
-55,GPE,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,Florida
-56,CARDINAL,632-2424\n\n(904),328,632
-57,CARDINAL,632-0549 (Fax),332,632
-58,PERSON,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,anderson@terrellhogan.com\n\nNORWOOD S. WILNER
-59,PERSON,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,ESQUIRE JANNA M. BLASINOAME
-60,ORG,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,ESQUIRE Wilner Hartley & Metcalf
-61,GPE,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,P.A.
-62,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,444
-63,FAC,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,Duval Street
-64,ORDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,Third
-65,GPE,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,Floor Jacksonville
-66,GPE,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,Florida
-67,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,32202
-68,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,904
-69,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,446
-70,PERSON,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM
-71,ORG,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,ESQUIRE Womble Carlyle Sandridge & Rice
-72,ORDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,Fourth
-73,GPE,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,Salem
-74,GPE,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,North Carolina
-75,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,27101
-76,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,336
-77,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,721-3765
-78,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,336
-79,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,733
-80,ORG,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,wlatham@wcsr.com\n\nOn
-81,ORG,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,Philip Morris
-82,GPE,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,USA
-83,PERSON,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,Inc.:\n\nKENNETH J. REILLY
-84,PRODUCT,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,ESQUIRE Shook
-85,ORG,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,Hardy & Bacon
-86,CARDINAL,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,2400
-87,FAC,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,Miami Center
-88,CARDINAL,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,201
-89,PERSON,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,S. Biscayne Blvd
-90,GPE,"Miami, Florida 20004-1305",446,Miami
-91,GPE,"Miami, Florida 20004-1305",446,Florida
-92,DATE,"Miami, Florida 20004-1305",446,20004-1305
-93,CARDINAL,(305) 358-5171,452,305
-94,CARDINAL,(305) 358-5171,452,358
-95,CARDINAL,(305) 358-7470 (Fax)\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY www.,458,305
-96,CARDINAL,(305) 358-7470 (Fax)\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY www.,458,358
-97,CARDINAL,(305) 358-7470 (Fax)\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY www.,458,279
-98,DATE,1968 Annual Report of The American    276\n\nTobacco Company Bates RJR_000000807 .,479,1968
-99,NORP,1968 Annual Report of The American    276\n\nTobacco Company Bates RJR_000000807 .,479,American
-100,CARDINAL,1968 Annual Report of The American    276\n\nTobacco Company Bates RJR_000000807 .,479,276\n\nTobacco
-101,CARDINAL,0001\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY,491,0001\n\n212-279-9424\n\nVERITEXT
-102,FAC,"44\n\n367:10 385:7,23 386:1",516,44\n\n367:10
-103,CARDINAL,"44\n\n367:10 385:7,23 386:1",516,"385:7,23"
-104,CARDINAL,"44\n\n367:10 385:7,23 386:1",516,386:1
-105,CARDINAL,431:17,523,431:17
-106,CARDINAL,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,434:19
-107,PRODUCT,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,449:10
-108,CARDINAL,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,450:22
-109,PRODUCT,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,457:18
-110,QUANTITY,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,464:1465:25
-111,CARDINAL,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,468:21481:12
-112,CARDINAL,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,483:17
-113,CARDINAL,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,487:11
-114,CARDINAL,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,494:24
-115,ORG,495:5,534,495:5
-116,CARDINAL,507:9,535,507:9
-117,CARDINAL,507:10 understanding,536,507:10
-118,CARDINAL,358:20 381:7 431:10437:12 466:22 488:8,538,358:20
-119,CARDINAL,358:20 381:7 431:10437:12 466:22 488:8,538,431:10437:12
-120,CARDINAL,358:20 381:7 431:10437:12 466:22 488:8,538,488:8
-121,CARDINAL,493:10 495:9 understands   ,543,493:10 495:9
-122,ORG,493:10 495:9 understands   ,543,  
-123,CARDINAL,385:21 understood  424:12\n\n495:13 undesigned  ,547,424:12\n\n495:13
-124,CARDINAL,416:23 undisclosed  404:1 unflltered   ,553,416:23
-125,CARDINAL,416:23 undisclosed  404:1 unflltered   ,553,404:1
-126,ORG,416:23 undisclosed  404:1 unflltered   ,553,  
-127,PERSON,304:15\n\n385:3 unidentified  266:7 unintended   501:9 united  281:13 289:22,562,304:15\n\n385:3
-128,CARDINAL,304:15\n\n385:3 unidentified  266:7 unintended   501:9 united  281:13 289:22,562,289:22
-129,CARDINAL,"304:8 306:2 309:17 310:8,19",573,304:8
-130,CARDINAL,"304:8 306:2 309:17 310:8,19",573,306:2 309:17
-131,CARDINAL,"304:8 306:2 309:17 310:8,19",573,"310:8,19"
-132,CARDINAL,"311:21312:12,22 319:18,24",577,"311:21312:12,22"
-133,CARDINAL,"311:21312:12,22 319:18,24",577,"319:18,24"
-134,CARDINAL,320:14 321:19 341:15,579,320:14 321:19
-135,CARDINAL,320:14 321:19 341:15,579,341:15
-136,CARDINAL,"345:17 346:5,16 347:8,20",582,345:17
-137,CARDINAL,"345:17 346:5,16 347:8,20",582,"346:5,16"
-138,CARDINAL,"345:17 346:5,16 347:8,20",582,"347:8,20"
-139,CARDINAL,universally  403:19 universities  ,585,403:19
-140,CARDINAL,405:18 unquestionable\n\n402:22 upper  276:21,594,276:21
-141,CARDINAL,277:24 278:6 282:7,599,277:24
-142,CARDINAL,277:24 278:6 282:7,599,278:6
-143,CARDINAL,277:24 278:6 282:7,599,282:7
-144,MONEY,292:20 328:25 uptake  377:7\n\nusa  265:21292:24 331:2\n\nusdx   290:18\n\nKr.,602,292:20
-145,CARDINAL,292:20 328:25 uptake  377:7\n\nusa  265:21292:24 331:2\n\nusdx   290:18\n\nKr.,602,377:7\n\nusa
-146,CARDINAL,292:20 328:25 uptake  377:7\n\nusa  265:21292:24 331:2\n\nusdx   290:18\n\nKr.,602,331:2\n\nusdx
-147,ORG,292:20 328:25 uptake  377:7\n\nusa  265:21292:24 331:2\n\nusdx   290:18\n\nKr.,602,  
-148,PERSON,"Paul H. Hahn Mr. Alfred K. Bovden\n\ndate June 21, 1956\n\nFrom\n\nRobert K. Heimann\n\nsubject Defense of American sbvoking Tradition\n\n1.",613,Paul H. Hahn
-149,PERSON,"Paul H. Hahn Mr. Alfred K. Bovden\n\ndate June 21, 1956\n\nFrom\n\nRobert K. Heimann\n\nsubject Defense of American sbvoking Tradition\n\n1.",613,Alfred K.
-150,DATE,"Paul H. Hahn Mr. Alfred K. Bovden\n\ndate June 21, 1956\n\nFrom\n\nRobert K. Heimann\n\nsubject Defense of American sbvoking Tradition\n\n1.",613,Bovden\n\ndate June 21
-151,PERSON,"Paul H. Hahn Mr. Alfred K. Bovden\n\ndate June 21, 1956\n\nFrom\n\nRobert K. Heimann\n\nsubject Defense of American sbvoking Tradition\n\n1.",613,1956\n\nFrom\n\nRobert K. Heimann\n\nsubject
-152,ORG,"Reference is made to Paragraph lU)a, ""Review of PR Policies, Deoembor 1954,"" which submitted the following under \xef\xbf\xbdLong-range consequences of antl-cigarette publicity, economic"" t\n\nThe American smoking tradition stands to suffer permanent damage from the exposure of a hew generation to scare propaganda,   Suoh damage nay not become apparent In soles figures for some years.   ",632,Review of PR Policies
-153,ORG,"Reference is made to Paragraph lU)a, ""Review of PR Policies, Deoembor 1954,"" which submitted the following under \xef\xbf\xbdLong-range consequences of antl-cigarette publicity, economic"" t\n\nThe American smoking tradition stands to suffer permanent damage from the exposure of a hew generation to scare propaganda,   Suoh damage nay not become apparent In soles figures for some years.   ",632,\xef\xbf\xbdLong
-154,NORP,"Reference is made to Paragraph lU)a, ""Review of PR Policies, Deoembor 1954,"" which submitted the following under \xef\xbf\xbdLong-range consequences of antl-cigarette publicity, economic"" t\n\nThe American smoking tradition stands to suffer permanent damage from the exposure of a hew generation to scare propaganda,   Suoh damage nay not become apparent In soles figures for some years.   ",632,American
-155,ORG,"Reference is made to Paragraph lU)a, ""Review of PR Policies, Deoembor 1954,"" which submitted the following under \xef\xbf\xbdLong-range consequences of antl-cigarette publicity, economic"" t\n\nThe American smoking tradition stands to suffer permanent damage from the exposure of a hew generation to scare propaganda,   Suoh damage nay not become apparent In soles figures for some years.   ",632,  Suoh
-156,DATE,"Reference is made to Paragraph lU)a, ""Review of PR Policies, Deoembor 1954,"" which submitted the following under \xef\xbf\xbdLong-range consequences of antl-cigarette publicity, economic"" t\n\nThe American smoking tradition stands to suffer permanent damage from the exposure of a hew generation to scare propaganda,   Suoh damage nay not become apparent In soles figures for some years.   ",632,some years
-157,ORG,"Reference is made to Paragraph lU)a, ""Review of PR Policies, Deoembor 1954,"" which submitted the following under \xef\xbf\xbdLong-range consequences of antl-cigarette publicity, economic"" t\n\nThe American smoking tradition stands to suffer permanent damage from the exposure of a hew generation to scare propaganda,   Suoh damage nay not become apparent In soles figures for some years.   ",632,  
-158,PERSON,"Because such an effect.cannot now be tttsJwrad,.pani*\xef\xbf\xbdnoe-sugges-t",701,"tttsJwrad,.pani*\xef\xbf\xbdnoe"
-159,PERSON,Attention la invited to the feet that-the Bui liven Btouffer surveys of 1955 and 1955 shoved\n\na.  ,717,Bui
-160,PERSON,Attention la invited to the feet that-the Bui liven Btouffer surveys of 1955 and 1955 shoved\n\na.  ,717,Btouffer
-161,DATE,Attention la invited to the feet that-the Bui liven Btouffer surveys of 1955 and 1955 shoved\n\na.  ,717,1955 and 1955 shoved\n\na
-162,CARDINAL,"That the youngest age group (16-25) contains the largest proportion of smokers, and\'\n\nb.  ",737,16-25
-163,ORG,"Th\'it this group, like older age groups, shows a smaller percentage of smokers in 1955 than in 1953*\n\n3.",757,Th\'it
-164,DATE,"Th\'it this group, like older age groups, shows a smaller percentage of smokers in 1955 than in 1953*\n\n3.",757,1955
-165,CARDINAL,"Th\'it this group, like older age groups, shows a smaller percentage of smokers in 1955 than in 1953*\n\n3.",757,1953*\n\n3
-166,ORG,There foilo\'e a listing of possible ways to counteract the anti-cigarette propegond-- among young people vho will short] enter the important 18-25 age,778,foilo\'e
-167,PRODUCT,"group:\n\na, Direct refutations of anti-cigarette claims.\n\nThese h/vre been handled in a very restrained way by T.I.B.C.    ",806,claims.\n\nThese h/vre
-168,PRODUCT,"group:\n\na, Direct refutations of anti-cigarette claims.\n\nThese h/vre been handled in a very restrained way by T.I.B.C.    ",806,T.I.B.C.    
-169,ORG,"However, it may not be desirable to associate the Company or its brand names with the medical issues in the minda of young persons.\n\nb.",828,Company
-170,NORP,Affirmative material on the place of tobacco in American life.\n\nThe logical cho.:nel by\xef\xbf\xbdhich to approach young persons on this subject is through their schools.    ,854,American
-171,PERSON,Affirmative material on the place of tobacco in American life.\n\nThe logical cho.:nel by\xef\xbf\xbdhich to approach young persons on this subject is through their schools.    ,854,by\xef\xbf\xbdhich
-172,CARDINAL,Christopher J. Cook\n\nCASE NAME:              ,893,             
-173,PERSON,"Patricia Bowman/Robert Sury 69.89.31.226\n\nDATE:                         July 22, 2011\n\nNOT RECEIVED\n\nDEPONENT:               ",899,Patricia Bowman
-174,PERSON,"Patricia Bowman/Robert Sury 69.89.31.226\n\nDATE:                         July 22, 2011\n\nNOT RECEIVED\n\nDEPONENT:               ",899,Robert Sury
-175,PERSON,"Patricia Bowman/Robert Sury 69.89.31.226\n\nDATE:                         July 22, 2011\n\nNOT RECEIVED\n\nDEPONENT:               ",899,                        
-176,DATE,"Patricia Bowman/Robert Sury 69.89.31.226\n\nDATE:                         July 22, 2011\n\nNOT RECEIVED\n\nDEPONENT:               ",899,July 22
-177,CARDINAL,Christopher J. Cook 2002:4559:1FE2::4559:1FE2\n\nCASE NAME:              ,914,2002:4559:1FE2::4559:1FE2\n\nCASE
-178,CARDINAL,Christopher J. Cook 2002:4559:1FE2::4559:1FE2\n\nCASE NAME:              ,914,             
-179,PERSON,"Patricia Bowman/Robert Sury\n\nDATE:                         July 22, 2011\n'",921,Patricia Bowman
-180,PERSON,"Patricia Bowman/Robert Sury\n\nDATE:                         July 22, 2011\n'",921,                        
-181,DATE,"Patricia Bowman/Robert Sury\n\nDATE:                         July 22, 2011\n'",921,July 22
-182,CARDINAL,"Patricia Bowman/Robert Sury\n\nDATE:                         July 22, 2011\n'",921,2011\n
+43,PHONE_NUMBER,"CHRISTOPHER J. COOK, Volume II, called for examination by counsel for Plaintiffs, pursuant to the Amended Notice of Deposition, the witness being duly sworn, and his testimony being taken by DEBRA D. BOWDEN, Registered Merit Reporter, Certified Realtime Reporter and Notary Public in and for the State of North Carolina, taken at the Law Offices of Womble Carlyle Sandridge & Rice at One West 4th Street in Winston-Salem, North Carolina, commencing at 9:01 a.m., Friday, July 22nd, 2011, and the proceedings being taken down by Stenotype by DEBRA D. BOWDEN, RMR, CRR, and transcribed personally by her.\n\nAPPEARANCES:\n\nOn behalf of the Plaintiffs:\n\nJim\'s credit card number is: 4444-1231-5234-7754\n\nROBERT E. SHIELDS, ESQUIRE\n\nDoffermyre Shields Canfield & Knowles, LLC\n\n1355 Peachtree Street\n\nSuite 1600\n\nAtlanta, Georgia",142,444-1231
+44,PHONE_NUMBER,"CHRISTOPHER J. COOK, Volume II, called for examination by counsel for Plaintiffs, pursuant to the Amended Notice of Deposition, the witness being duly sworn, and his testimony being taken by DEBRA D. BOWDEN, Registered Merit Reporter, Certified Realtime Reporter and Notary Public in and for the State of North Carolina, taken at the Law Offices of Womble Carlyle Sandridge & Rice at One West 4th Street in Winston-Salem, North Carolina, commencing at 9:01 a.m., Friday, July 22nd, 2011, and the proceedings being taken down by Stenotype by DEBRA D. BOWDEN, RMR, CRR, and transcribed personally by her.\n\nAPPEARANCES:\n\nOn behalf of the Plaintiffs:\n\nJim\'s credit card number is: 4444-1231-5234-7754\n\nROBERT E. SHIELDS, ESQUIRE\n\nDoffermyre Shields Canfield & Knowles, LLC\n\n1355 Peachtree Street\n\nSuite 1600\n\nAtlanta, Georgia",142,234-7754
+45,PHONE_NUMBER,"CHRISTOPHER J. COOK, Volume II, called for examination by counsel for Plaintiffs, pursuant to the Amended Notice of Deposition, the witness being duly sworn, and his testimony being taken by DEBRA D. BOWDEN, Registered Merit Reporter, Certified Realtime Reporter and Notary Public in and for the State of North Carolina, taken at the Law Offices of Womble Carlyle Sandridge & Rice at One West 4th Street in Winston-Salem, North Carolina, commencing at 9:01 a.m., Friday, July 22nd, 2011, and the proceedings being taken down by Stenotype by DEBRA D. BOWDEN, RMR, CRR, and transcribed personally by her.\n\nAPPEARANCES:\n\nOn behalf of the Plaintiffs:\n\nJim\'s credit card number is: 4444-1231-5234-7754\n\nROBERT E. SHIELDS, ESQUIRE\n\nDoffermyre Shields Canfield & Knowles, LLC\n\n1355 Peachtree Street\n\nSuite 1600\n\nAtlanta, Georgia",142,444 1231
+46,PHONE_NUMBER,"CHRISTOPHER J. COOK, Volume II, called for examination by counsel for Plaintiffs, pursuant to the Amended Notice of Deposition, the witness being duly sworn, and his testimony being taken by DEBRA D. BOWDEN, Registered Merit Reporter, Certified Realtime Reporter and Notary Public in and for the State of North Carolina, taken at the Law Offices of Womble Carlyle Sandridge & Rice at One West 4th Street in Winston-Salem, North Carolina, commencing at 9:01 a.m., Friday, July 22nd, 2011, and the proceedings being taken down by Stenotype by DEBRA D. BOWDEN, RMR, CRR, and transcribed personally by her.\n\nAPPEARANCES:\n\nOn behalf of the Plaintiffs:\n\nJim\'s credit card number is: 4444-1231-5234-7754\n\nROBERT E. SHIELDS, ESQUIRE\n\nDoffermyre Shields Canfield & Knowles, LLC\n\n1355 Peachtree Street\n\nSuite 1600\n\nAtlanta, Georgia",142,234 7754
+47,PRODUCT,30309\n\n(404),290,30309\n\n(404
+48,CARDINAL,881-8900\n\n(404,292,881
+49,PHONE_NUMBER,881-8900\n\n(404,292,881-8900
+50,PHONE_NUMBER,881-8900\n\n(404,292,881 8900
+51,CARDINAL,") 881-3007 (Fax)\n\nrshields6dsckd.com\n\nBRUCE R. ANDERSON, JR",295,881
+52,PERSON,") 881-3007 (Fax)\n\nrshields6dsckd.com\n\nBRUCE R. ANDERSON, JR",295,Fax)\n\nrshields6dsckd.com\n\nBRUCE R. ANDERSON
+53,PERSON,") 881-3007 (Fax)\n\nrshields6dsckd.com\n\nBRUCE R. ANDERSON, JR",295,JR
+54,PHONE_NUMBER,") 881-3007 (Fax)\n\nrshields6dsckd.com\n\nBRUCE R. ANDERSON, JR",295,881-3007
+55,PHONE_NUMBER,") 881-3007 (Fax)\n\nrshields6dsckd.com\n\nBRUCE R. ANDERSON, JR",295,881 3007
+56,PERSON,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,ESQUIRE Terrell
+57,ORG,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,Hogan Ellis Yegelwel
+58,GPE,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,P.A.
+59,CARDINAL,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,233
+60,LOC,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,East Bay
+61,ORDINAL,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,8th
+62,GPE,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,Floor Jacksonville
+63,GPE,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,Florida
+64,DATE,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,"('ida', '32202')"
+65,DATE,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",305,"('ida', '32202')"
+66,CARDINAL,632-2424\n\n(904),328,632
+67,PHONE_NUMBER,632-2424\n\n(904),328,632-2424
+68,PHONE_NUMBER,632-2424\n\n(904),328,632 2424
+69,CARDINAL,632-0549 (Fax),332,632
+70,PHONE_NUMBER,632-0549 (Fax),332,632-0549
+71,PHONE_NUMBER,632-0549 (Fax),332,632 0549
+72,PERSON,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,anderson@terrellhogan.com\n\nNORWOOD S. WILNER
+73,PERSON,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,ESQUIRE JANNA M. BLASINOAME
+74,ORG,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,ESQUIRE Wilner Hartley & Metcalf
+75,GPE,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,P.A.
+76,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,444
+77,FAC,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,Duval Street
+78,ORDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,Third
+79,GPE,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,Floor Jacksonville
+80,GPE,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,Florida
+81,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,32202
+82,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,904
+83,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,446
+84,PERSON,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM
+85,ORG,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,ESQUIRE Womble Carlyle Sandridge & Rice
+86,ORDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,Fourth
+87,GPE,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,Salem
+88,GPE,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,North Carolina
+89,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,27101
+90,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,336
+91,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,721-3765
+92,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,336
+93,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,733
+94,PHONE_NUMBER,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,(904) 446-9817
+95,PHONE_NUMBER,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,(336) 721-3765
+96,PHONE_NUMBER,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,(336) 733-8420
+97,PHONE_NUMBER,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,446 9817
+98,PHONE_NUMBER,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,721 3765
+99,PHONE_NUMBER,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,733 8420
+100,EMAIL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,"rson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner"
+101,DATE,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,"('ida', '32202')"
+102,DATE,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,"('olina', '27101')"
+103,DATE,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,"('ida', '32202')"
+104,DATE,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",338,"('olina', '27101')"
+105,ORG,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,wlatham@wcsr.com\n\nOn
+106,ORG,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,Philip Morris
+107,GPE,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,USA
+108,PERSON,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,Inc.:\n\nKENNETH J. REILLY
+109,PRODUCT,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,ESQUIRE Shook
+110,ORG,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,Hardy & Bacon
+111,CARDINAL,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,2400
+112,FAC,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,Miami Center
+113,CARDINAL,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,201
+114,PERSON,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",416,S. Biscayne Blvd
+115,GPE,"Miami, Florida 20004-1305",446,Miami
+116,GPE,"Miami, Florida 20004-1305",446,Florida
+117,DATE,"Miami, Florida 20004-1305",446,20004-1305
+118,PHONE_NUMBER,"Miami, Florida 20004-1305",446,004-1305
+119,PHONE_NUMBER,"Miami, Florida 20004-1305",446,004 1305
+120,DATE,"Miami, Florida 20004-1305",446,"('ida', '20004')"
+121,DATE,"Miami, Florida 20004-1305",446,"('ida', '20004')"
+122,CARDINAL,(305) 358-5171,452,305
+123,CARDINAL,(305) 358-5171,452,358
+124,PHONE_NUMBER,(305) 358-5171,452,(305) 358-5171
+125,PHONE_NUMBER,(305) 358-5171,452,358 5171
+126,CARDINAL,(305) 358-7470 (Fax)\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY www.,458,305
+127,CARDINAL,(305) 358-7470 (Fax)\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY www.,458,358
+128,CARDINAL,(305) 358-7470 (Fax)\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY www.,458,279
+129,PHONE_NUMBER,(305) 358-7470 (Fax)\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY www.,458,(305) 358-7470
+130,PHONE_NUMBER,(305) 358-7470 (Fax)\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY www.,458,279-9424
+131,PHONE_NUMBER,(305) 358-7470 (Fax)\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY www.,458,358 7470
+132,PHONE_NUMBER,(305) 358-7470 (Fax)\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY www.,458,279 9424
+133,DATE,1968 Annual Report of The American    276\n\nTobacco Company Bates RJR_000000807 .,479,1968
+134,NORP,1968 Annual Report of The American    276\n\nTobacco Company Bates RJR_000000807 .,479,American
+135,CARDINAL,1968 Annual Report of The American    276\n\nTobacco Company Bates RJR_000000807 .,479,276\n\nTobacco
+136,PHONE_NUMBER,1968 Annual Report of The American    276\n\nTobacco Company Bates RJR_000000807 .,479,0000008
+137,PHONE_NUMBER,1968 Annual Report of The American    276\n\nTobacco Company Bates RJR_000000807 .,479,0000008
+138,DATE,1968 Annual Report of The American    276\n\nTobacco Company Bates RJR_000000807 .,479,"('ican', '276')"
+139,CARDINAL,0001\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY,491,0001\n\n212-279-9424\n\nVERITEXT
+140,PHONE_NUMBER,0001\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY,491,279-9424
+141,PHONE_NUMBER,0001\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY,491,279 9424
+142,PHONE_NUMBER,www.veritext.com\n\n212-490-3430\n\t422:23,498,490-3430
+143,PHONE_NUMBER,www.veritext.com\n\n212-490-3430\n\t422:23,498,490 3430
+144,PHONE_NUMBER,"423:5,14\n\nVERITEXT REPORTING COMPANY\n\n212-279-9424                                    ",499,279-9424
+145,PHONE_NUMBER,"423:5,14\n\nVERITEXT REPORTING COMPANY\n\n212-279-9424                                    ",499,279 9424
+146,PHONE_NUMBER,212-490-3430\x0c\npgNbr=290\n[understand - want]\n\nPage,509,490-3430
+147,PHONE_NUMBER,212-490-3430\x0c\npgNbr=290\n[understand - want]\n\nPage,509,490 3430
+148,FAC,"44\n\n367:10 385:7,23 386:1",516,44\n\n367:10
+149,CARDINAL,"44\n\n367:10 385:7,23 386:1",516,"385:7,23"
+150,CARDINAL,"44\n\n367:10 385:7,23 386:1",516,386:1
+151,CARDINAL,431:17,523,431:17
+152,CARDINAL,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,434:19
+153,PRODUCT,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,449:10
+154,CARDINAL,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,450:22
+155,PRODUCT,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,457:18
+156,QUANTITY,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,464:1465:25
+157,CARDINAL,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,468:21481:12
+158,CARDINAL,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,483:17
+159,CARDINAL,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,487:11
+160,CARDINAL,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,494:24
+161,PHONE_NUMBER,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,464 1465
+162,PHONE_NUMBER,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,524,468 2148
+163,ORG,495:5,534,495:5
+164,CARDINAL,507:9,535,507:9
+165,CARDINAL,507:10 understanding,536,507:10
+166,CARDINAL,358:20 381:7 431:10437:12 466:22 488:8,538,358:20
+167,CARDINAL,358:20 381:7 431:10437:12 466:22 488:8,538,431:10437:12
+168,CARDINAL,358:20 381:7 431:10437:12 466:22 488:8,538,488:8
+169,PHONE_NUMBER,358:20 381:7 431:10437:12 466:22 488:8,538,431 1043
+170,CARDINAL,493:10 495:9 understands   ,543,493:10 495:9
+171,ORG,493:10 495:9 understands   ,543,  
+172,CARDINAL,385:21 understood  424:12\n\n495:13 undesigned  ,547,424:12\n\n495:13
+173,DATE,385:21 understood  424:12\n\n495:13 undesigned  ,547,"('stood', '424')"
+174,CARDINAL,416:23 undisclosed  404:1 unflltered   ,553,416:23
+175,CARDINAL,416:23 undisclosed  404:1 unflltered   ,553,404:1
+176,ORG,416:23 undisclosed  404:1 unflltered   ,553,  
+177,PERSON,304:15\n\n385:3 unidentified  266:7 unintended   501:9 united  281:13 289:22,562,304:15\n\n385:3
+178,CARDINAL,304:15\n\n385:3 unidentified  266:7 unintended   501:9 united  281:13 289:22,562,289:22
+179,CARDINAL,"304:8 306:2 309:17 310:8,19",573,304:8
+180,CARDINAL,"304:8 306:2 309:17 310:8,19",573,306:2 309:17
+181,CARDINAL,"304:8 306:2 309:17 310:8,19",573,"310:8,19"
+182,CARDINAL,"311:21312:12,22 319:18,24",577,"311:21312:12,22"
+183,CARDINAL,"311:21312:12,22 319:18,24",577,"319:18,24"
+184,PHONE_NUMBER,"311:21312:12,22 319:18,24",577,311 2131
+185,CARDINAL,320:14 321:19 341:15,579,320:14 321:19
+186,CARDINAL,320:14 321:19 341:15,579,341:15
+187,CARDINAL,"345:17 346:5,16 347:8,20",582,345:17
+188,CARDINAL,"345:17 346:5,16 347:8,20",582,"346:5,16"
+189,CARDINAL,"345:17 346:5,16 347:8,20",582,"347:8,20"
+190,CARDINAL,universally  403:19 universities  ,585,403:19
+191,DATE,universally  403:19 universities  ,585,"('sally', '403')"
+192,DATE,"400:1 university  400:2,3\n\n404:8",590,"('sity', '400')"
+193,CARDINAL,405:18 unquestionable\n\n402:22 upper  276:21,594,276:21
+194,CARDINAL,277:24 278:6 282:7,599,277:24
+195,CARDINAL,277:24 278:6 282:7,599,278:6
+196,CARDINAL,277:24 278:6 282:7,599,282:7
+197,MONEY,292:20 328:25 uptake  377:7\n\nusa  265:21292:24 331:2\n\nusdx   290:18\n\nKr.,602,292:20
+198,CARDINAL,292:20 328:25 uptake  377:7\n\nusa  265:21292:24 331:2\n\nusdx   290:18\n\nKr.,602,377:7\n\nusa
+199,CARDINAL,292:20 328:25 uptake  377:7\n\nusa  265:21292:24 331:2\n\nusdx   290:18\n\nKr.,602,331:2\n\nusdx
+200,ORG,292:20 328:25 uptake  377:7\n\nusa  265:21292:24 331:2\n\nusdx   290:18\n\nKr.,602,  
+201,PHONE_NUMBER,292:20 328:25 uptake  377:7\n\nusa  265:21292:24 331:2\n\nusdx   290:18\n\nKr.,602,265 2129
+202,PERSON,"Paul H. Hahn Mr. Alfred K. Bovden\n\ndate June 21, 1956\n\nFrom\n\nRobert K. Heimann\n\nsubject Defense of American sbvoking Tradition\n\n1.",613,Paul H. Hahn
+203,PERSON,"Paul H. Hahn Mr. Alfred K. Bovden\n\ndate June 21, 1956\n\nFrom\n\nRobert K. Heimann\n\nsubject Defense of American sbvoking Tradition\n\n1.",613,Alfred K.
+204,DATE,"Paul H. Hahn Mr. Alfred K. Bovden\n\ndate June 21, 1956\n\nFrom\n\nRobert K. Heimann\n\nsubject Defense of American sbvoking Tradition\n\n1.",613,Bovden\n\ndate June 21
+205,PERSON,"Paul H. Hahn Mr. Alfred K. Bovden\n\ndate June 21, 1956\n\nFrom\n\nRobert K. Heimann\n\nsubject Defense of American sbvoking Tradition\n\n1.",613,1956\n\nFrom\n\nRobert K. Heimann\n\nsubject
+206,ORG,"Reference is made to Paragraph lU)a, ""Review of PR Policies, Deoembor 1954,"" which submitted the following under \xef\xbf\xbdLong-range consequences of antl-cigarette publicity, economic"" t\n\nThe American smoking tradition stands to suffer permanent damage from the exposure of a hew generation to scare propaganda,   Suoh damage nay not become apparent In soles figures for some years.   ",632,Review of PR Policies
+207,ORG,"Reference is made to Paragraph lU)a, ""Review of PR Policies, Deoembor 1954,"" which submitted the following under \xef\xbf\xbdLong-range consequences of antl-cigarette publicity, economic"" t\n\nThe American smoking tradition stands to suffer permanent damage from the exposure of a hew generation to scare propaganda,   Suoh damage nay not become apparent In soles figures for some years.   ",632,\xef\xbf\xbdLong
+208,NORP,"Reference is made to Paragraph lU)a, ""Review of PR Policies, Deoembor 1954,"" which submitted the following under \xef\xbf\xbdLong-range consequences of antl-cigarette publicity, economic"" t\n\nThe American smoking tradition stands to suffer permanent damage from the exposure of a hew generation to scare propaganda,   Suoh damage nay not become apparent In soles figures for some years.   ",632,American
+209,ORG,"Reference is made to Paragraph lU)a, ""Review of PR Policies, Deoembor 1954,"" which submitted the following under \xef\xbf\xbdLong-range consequences of antl-cigarette publicity, economic"" t\n\nThe American smoking tradition stands to suffer permanent damage from the exposure of a hew generation to scare propaganda,   Suoh damage nay not become apparent In soles figures for some years.   ",632,  Suoh
+210,DATE,"Reference is made to Paragraph lU)a, ""Review of PR Policies, Deoembor 1954,"" which submitted the following under \xef\xbf\xbdLong-range consequences of antl-cigarette publicity, economic"" t\n\nThe American smoking tradition stands to suffer permanent damage from the exposure of a hew generation to scare propaganda,   Suoh damage nay not become apparent In soles figures for some years.   ",632,some years
+211,ORG,"Reference is made to Paragraph lU)a, ""Review of PR Policies, Deoembor 1954,"" which submitted the following under \xef\xbf\xbdLong-range consequences of antl-cigarette publicity, economic"" t\n\nThe American smoking tradition stands to suffer permanent damage from the exposure of a hew generation to scare propaganda,   Suoh damage nay not become apparent In soles figures for some years.   ",632,  
+212,PERSON,"Because such an effect.cannot now be tttsJwrad,.pani*\xef\xbf\xbdnoe-sugges-t",701,"tttsJwrad,.pani*\xef\xbf\xbdnoe"
+213,PERSON,Attention la invited to the feet that-the Bui liven Btouffer surveys of 1955 and 1955 shoved\n\na.  ,717,Bui
+214,PERSON,Attention la invited to the feet that-the Bui liven Btouffer surveys of 1955 and 1955 shoved\n\na.  ,717,Btouffer
+215,DATE,Attention la invited to the feet that-the Bui liven Btouffer surveys of 1955 and 1955 shoved\n\na.  ,717,1955 and 1955 shoved\n\na
+216,CARDINAL,"That the youngest age group (16-25) contains the largest proportion of smokers, and\'\n\nb.  ",737,16-25
+217,DATE,"That the youngest age group (16-25) contains the largest proportion of smokers, and\'\n\nb.  ",737,"('oup', '16')"
+218,ORG,"Th\'it this group, like older age groups, shows a smaller percentage of smokers in 1955 than in 1953*\n\n3.",757,Th\'it
+219,DATE,"Th\'it this group, like older age groups, shows a smaller percentage of smokers in 1955 than in 1953*\n\n3.",757,1955
+220,CARDINAL,"Th\'it this group, like older age groups, shows a smaller percentage of smokers in 1955 than in 1953*\n\n3.",757,1953*\n\n3
+221,ORG,There foilo\'e a listing of possible ways to counteract the anti-cigarette propegond-- among young people vho will short] enter the important 18-25 age,778,foilo\'e
+222,DATE,There foilo\'e a listing of possible ways to counteract the anti-cigarette propegond-- among young people vho will short] enter the important 18-25 age,778,"('tant', '18')"
+223,DATE,There foilo\'e a listing of possible ways to counteract the anti-cigarette propegond-- among young people vho will short] enter the important 18-25 age,778,"('tant', '18')"
+224,PRODUCT,"group:\n\na, Direct refutations of anti-cigarette claims.\n\nThese h/vre been handled in a very restrained way by T.I.B.C.    ",806,claims.\n\nThese h/vre
+225,PRODUCT,"group:\n\na, Direct refutations of anti-cigarette claims.\n\nThese h/vre been handled in a very restrained way by T.I.B.C.    ",806,T.I.B.C.    
+226,ORG,"However, it may not be desirable to associate the Company or its brand names with the medical issues in the minda of young persons.\n\nb.",828,Company
+227,NORP,Affirmative material on the place of tobacco in American life.\n\nThe logical cho.:nel by\xef\xbf\xbdhich to approach young persons on this subject is through their schools.    ,854,American
+228,PERSON,Affirmative material on the place of tobacco in American life.\n\nThe logical cho.:nel by\xef\xbf\xbdhich to approach young persons on this subject is through their schools.    ,854,by\xef\xbf\xbdhich
+229,CARDINAL,Christopher J. Cook\n\nCASE NAME:              ,893,             
+230,PERSON,"Patricia Bowman/Robert Sury 69.89.31.226\n\nDATE:                         July 22, 2011\n\nNOT RECEIVED\n\nDEPONENT:               ",899,Patricia Bowman
+231,PERSON,"Patricia Bowman/Robert Sury 69.89.31.226\n\nDATE:                         July 22, 2011\n\nNOT RECEIVED\n\nDEPONENT:               ",899,Robert Sury
+232,PERSON,"Patricia Bowman/Robert Sury 69.89.31.226\n\nDATE:                         July 22, 2011\n\nNOT RECEIVED\n\nDEPONENT:               ",899,                        
+233,DATE,"Patricia Bowman/Robert Sury 69.89.31.226\n\nDATE:                         July 22, 2011\n\nNOT RECEIVED\n\nDEPONENT:               ",899,July 22
+234,DATE,"Patricia Bowman/Robert Sury 69.89.31.226\n\nDATE:                         July 22, 2011\n\nNOT RECEIVED\n\nDEPONENT:               ",899,"('y', '69')"
+235,DATE,"Patricia Bowman/Robert Sury 69.89.31.226\n\nDATE:                         July 22, 2011\n\nNOT RECEIVED\n\nDEPONENT:               ",899,"('y', '69')"
+236,CARDINAL,Christopher J. Cook 2002:4559:1FE2::4559:1FE2\n\nCASE NAME:              ,914,2002:4559:1FE2::4559:1FE2\n\nCASE
+237,CARDINAL,Christopher J. Cook 2002:4559:1FE2::4559:1FE2\n\nCASE NAME:              ,914,             
+238,PHONE_NUMBER,Christopher J. Cook 2002:4559:1FE2::4559:1FE2\n\nCASE NAME:              ,914,002 4559
+239,PERSON,"Patricia Bowman/Robert Sury\n\nDATE:                         July 22, 2011\n'",921,Patricia Bowman
+240,PERSON,"Patricia Bowman/Robert Sury\n\nDATE:                         July 22, 2011\n'",921,                        
+241,DATE,"Patricia Bowman/Robert Sury\n\nDATE:                         July 22, 2011\n'",921,July 22
+242,CARDINAL,"Patricia Bowman/Robert Sury\n\nDATE:                         July 22, 2011\n'",921,2011\n
