@@ -1,0 +1,58 @@
+,entity_type,sentence,sentence_position,text_value
+0,PERSON,FLORIDA CIVIL DIVISION IN RE:  ,12, 
+1,WORK_OF_ART,ENOLE PROGENY\n\nTOBACCO LITIGATION        Case.,19,ENOLE PROGENY\n\nTOBACCO LITIGATION        Case
+2,CARDINAL,No.: 2008-CA-15000\n\nDIVISION:  Tobacco Pertains,25,2008-CA-15000\n\nDIVISION
+3,PERSON,"To:  All Cases,\n\nParticularly including Cooper Stansbury\n\nRobert Sury, as Personal        VOLUME II Representative of the       Pages 264-509 Estate of William Sury, Case",33,William Sury
+4,PERSON,"2007-CA-11175-IXXX-MA Patricia Bowman, as Personal Representative of the Estate of Michael Bowman Case",64,Michael Bowman
+5,CARDINAL,2007-CA-11175-AXXX,82,2007-CA-11175-AXXX
+6,GPE,"____/\n\nWinston-Salem, North Carolina",121,North Carolina
+7,DATE,"Friday, July 22, 2011 Videotaped Deposition of DR.",131,"Friday, July 22, 2011"
+8,CARDINAL,"CHRISTOPHER J. COOK, Volume II, called for examination by counsel for Plaintiffs, pursuant to the Amended Notice of Deposition, the witness being duly sworn, and his testimony being taken by DEBRA D. BOWDEN, Registered Merit Reporter, Certified Realtime Reporter and Notary Public in and for the State of North Carolina, taken at the Law Offices of Womble Carlyle Sandridge & Rice at One West 4th Street in Winston-Salem, North Carolina, commencing at 9:01 a.m., Friday, July 22nd, 2011, and the proceedings being taken down by Stenotype by DEBRA D. BOWDEN, RMR, CRR, and transcribed personally by her.\n\nAPPEARANCES:\n\nOn behalf of the Plaintiffs: 4444 1231 5234 7754\n\nROBERT E. SHIELDS, ESQUIRE\n\nDoffermyre Shields Canfield & Knowles, LLC\n\n1355 Peachtree Street\n\nSuite 1600\n\nAtlanta, Georgia",142,1600\n\nAtlanta
+9,MONEY,881-8900\n\n(404,284,881-8900\n\n(404
+10,PERSON,") 881-3007 (Fax)\n\nrshields6dsckd.com\n\nBRUCE R. ANDERSON, JR",287,JR
+11,GPE,"., ESQUIRE Terrell Hogan Ellis Yegelwel, P.A. 233 East Bay Street Blaokstone Building, 8th Floor Jacksonville, Florida 32202\n\n(904)",297,Florida
+12,CARDINAL,632-2424\n\n(904),320,632
+13,CARDINAL,632-0549 (Fax),324,632
+14,CARDINAL,"anderson@terrellhogan.com\n\nNORWOOD S. WILNER, ESQUIRE JANNA M. BLASINOAME, ESQUIRE Wilner Hartley & Metcalf, P.A. 444 E4 Duval Street, Third Floor Jacksonville, Florida 32202 (904) 446-9817 nwilner@whmlegal.com\n\nOn behalf of the Defendant R. J. Reynolds Tobacco Company:\n\nWILLIAM E. LATHAM, ESQUIRE Womble Carlyle Sandridge & Rice One West Fourth Street Winston-Salem, North Carolina 27101 (336) 721-3765 (336) 733-8420",330,733
+15,PERSON,"wlatham@wcsr.com\n\nOn behalf of the Defendant Philip Morris, USA, Inc.:\n\nKENNETH J. REILLY, ESQUIRE Shook, Hardy & Bacon, L.L.P. 2400 Miami Center 201 S. Biscayne Blvd.",408,S. Biscayne Blvd
+16,DATE,"Miami, Florida 20004-1305",438,20004-1305
+17,CARDINAL,(305) 358-5171,444,358
+18,PHONE_NUMBER,(305) 358-5171,444,(305) 358-5171
+19,CARDINAL,(305) 358-7470 (Fax)\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY www.,450,279
+20,PHONE_NUMBER,(305) 358-7470 (Fax)\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY www.,450,(305) 358-7470
+21,CARDINAL,1968 Annual Report of The American    276\n\nTobacco Company Bates RJR_000000807 .,471,276\n\nTobacco
+22,CARDINAL,0001\n\n212-279-9424\n\nVERITEXT REPORTING COMPANY,483,0001\n\n212-279-9424\n\nVERITEXT
+23,PHONE_NUMBER,212-490-3430\x0c\npgNbr=290\n[understand - want]\n\nPage,501,212-490-3430
+24,CARDINAL,"44\n\n367:10 385:7,23 386:1",508,386:1
+25,CARDINAL,431:17,515,431:17
+26,CARDINAL,434:19 449:10 450:22 457:18 459:3 464:1465:25 468:21481:12 483:17 487:11 494:24,516,494:24
+27,ORG,495:5,526,495:5
+28,CARDINAL,507:9,527,507:9
+29,CARDINAL,507:10 understanding,528,507:10
+30,CARDINAL,358:20 381:7 431:10437:12 466:22 488:8,530,488:8
+31,ORG,493:10 495:9 understands   ,535,  
+32,CARDINAL,385:21 understood  424:12\n\n495:13 undesigned  ,539,424:12\n\n495:13
+33,ORG,416:23 undisclosed  404:1 unflltered   ,545,  
+34,CARDINAL,304:15\n\n385:3 unidentified  266:7 unintended   501:9 united  281:13 289:22,554,289:22
+35,CARDINAL,"304:8 306:2 309:17 310:8,19",565,"310:8,19"
+36,CARDINAL,"311:21312:12,22 319:18,24",569,"319:18,24"
+37,CARDINAL,320:14 321:19 341:15,571,341:15
+38,CARDINAL,"345:17 346:5,16 347:8,20",574,"347:8,20"
+39,CARDINAL,universally  403:19 universities  ,577,403:19
+40,CARDINAL,405:18 unquestionable\n\n402:22 upper  276:21,586,276:21
+41,CARDINAL,277:24 278:6 282:7,591,282:7
+42,ORG,292:20 328:25 uptake  377:7\n\nusa  265:21292:24 331:2\n\nusdx   290:18\n\nKr.,594,  
+43,PERSON,"Paul H. Hahn Mr. Alfred K. Bovden\n\ndate June 21, 1956\n\nFrom\n\nRobert K. Heimann\n\nsubject Defense of American sbvoking Tradition\n\n1.",605,1956\n\nFrom\n\nRobert K. Heimann\n\nsubject
+44,ORG,"Reference is made to Paragraph lU)a, ""Review of PR Policies, Deoembor 1954,"" which submitted the following under \xef\xbf\xbdLong-range consequences of antl-cigarette publicity, economic"" t\n\nThe American smoking tradition stands to suffer permanent damage from the exposure of a hew generation to scare propaganda,   Suoh damage nay not become apparent In soles figures for some years.   ",624,  
+45,PERSON,"Because such an effect.cannot now be tttsJwrad,.pani*\xef\xbf\xbdnoe-sugges-t",693,"tttsJwrad,.pani*\xef\xbf\xbdnoe"
+46,DATE,Attention la invited to the feet that-the Bui liven Btouffer surveys of 1955 and 1955 shoved\n\na.  ,709,1955 and 1955 shoved\n\na
+47,CARDINAL,"That the youngest age group (16-25) contains the largest proportion of smokers, and\'\n\nb.  ",729,16-25
+48,CARDINAL,"Th\'it this group, like older age groups, shows a smaller percentage of smokers in 1955 than in 1953*\n\n3.",749,1953*\n\n3
+49,ORG,There foilo\'e a listing of possible ways to counteract the anti-cigarette propegond-- among young people vho will short] enter the important 18-25 age,770,foilo\'e
+50,PRODUCT,"group:\n\na, Direct refutations of anti-cigarette claims.\n\nThese h/vre been handled in a very restrained way by T.I.B.C.    ",798,T.I.B.C.    
+51,ORG,"However, it may not be desirable to associate the Company or its brand names with the medical issues in the minda of young persons.\n\nb.",820,Company
+52,PERSON,Affirmative material on the place of tobacco in American life.\n\nThe logical cho.:nel by\xef\xbf\xbdhich to approach young persons on this subject is through their schools.    ,846,by\xef\xbf\xbdhich
+53,CARDINAL,Christopher J. Cook\n\nCASE NAME:              ,885,             
+54,DATE,"Patricia Bowman/Robert Sury 69.89.31.226\n\nDATE:                         July 22, 2011\n\nNOT RECEIVED\n\nDEPONENT:               ",891,July 22
+55,CARDINAL,Christopher J. Cook 2002:4559:1FE2::4559:1FE2\n\nCASE NAME:              ,906,             
+56,CARDINAL,"Patricia Bowman/Robert Sury\n\nDATE:                         July 22, 2011\n'",913,2011\n

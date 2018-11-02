@@ -34,79 +34,70 @@ def regexPatternsFromFile(regex_input):
     return pattern_dict
 
 
-# # takes an NLP object as input
-# # returns a dataframe of position, type, and value
-def getEntities(document, regex_input):
 
-    print('Conducting individual entity searches...\n')
+# # function to build rows of a dataframe
+def buildRows(entity_list):
+
+    # print(type(entity_list[0]))
+
+    if type(entity_list[0]) == spacy.tokens.span.Span:
+        for entity in entity_list:
+            row = {
+                'entity_type':str(entity.label_).upper(),
+                'text_value':str(entity.text),
+                'sentence':str(entity.sent),
+                'sentence_position':entity.sent.start
+                }
+
+                # entity.lefts
+                # entity.rights
+                # entity.subtree
+
+    return row
+
+
+# # takes an NLP object and regex pattern file as input
+# # returns a dataframe of position, type, and value
+def entitySearch(document, regex_input):
+
+    print('Conducting entity searches...\n')
 
     # # list structure to transform into dataframe
     new_rows = []
 
-    print('Conducting named entity search...')
-    nerTime = time.time()
-
-    for entity in document.ents:
-        # store the left and right tokens for all NEs
-        lefts = []
-        rights = []
-        subtree = []
-        relations = []
-
-        [lefts.append(x) for x in entity.lefts]
-        [rights.append(x) for x in entity.rights]
-        [subtree.append(x) for x in entity.subtree]
-
-        row = {'entity_type':str(entity.label_).upper(),
-            'text_value':str(entity.text),
-            'start_position':entity.start_char}
-            # 'end_position':entity.end_char,
-            # 'lefts':lefts,
-            # 'rights':rights,
-            # 'subtree':subtree}
-
-        new_rows.append(row)
-
-    nerTimeEnd = time.time()
-    print('Named entity search COMPLETE: ' + str(nerTimeEnd - nerTime) + ' seconds\n')
-
-    regexTime = time.time()
-
     # # get regex patterns from file (more easily extendable)
     regex_patterns = regexPatternsFromFile(regex_input)
 
-    print('Conducting regex search...')
-    for search_pattern in regex_patterns:
+    for sentence in document.sents:
 
-        for regex_match in re.finditer(re.compile(regex_patterns[search_pattern]), document.text):
-            if regex_match:
+        # check if sentence contains named entities
+        if sentence.ents:
+            entity_list = sentence.ents
+            new_rows.append(buildRows(entity_list))
 
-                # # get position of match
-                # # not sure of this is correct,
-                # # pulling from the document text, not the doc object
-                span = regex_match.span()
+        # print(dir(sentence.as_doc()))
 
-                match_as_string = "{}".format(regex_match.group(0))
+        for search_pattern in regex_patterns:
+            compiled_pattern = re.compile(regex_patterns[search_pattern])
 
-                # # build row
-                row = {'entity_type':search_pattern,
-                    'text_value':match_as_string,
-                    'start_position':span[0]}
-                    # 'end_position':span[1]}
-                    # 'lefts':"",
-                    # 'rights':"",
-                    # 'subtree':""}
+            if compiled_pattern.match(sentence.text):
+                match_as_string = "{}".format(compiled_pattern.match(sentence.text).group(0))
 
-                # # save to list for conversion to dataframe
+                row = {
+                    'entity_type':str(search_pattern),
+                    'text_value':str(match_as_string),
+                    'sentence':str(sentence.text),
+                    'sentence_position':sentence.start
+                }
+
+                print(row)
+
                 new_rows.append(row)
 
-    regexTimeEnd = time.time()
-    print('Regex search COMPLETE: ' + str(regexTimeEnd - regexTime) + ' seconds\n')
 
-    print('Found ' + str(len(new_rows)) + ' total entities...')
-    print('Individual entity search COMPLETE.\n')
 
-    # # return dataframe with results for clustering
+    # [print(x) for x in new_rows]
+
     return pd.DataFrame(new_rows)
 
 
@@ -183,7 +174,7 @@ if __name__ == "__main__":
         processing_count += 1
 
         # get dataframe with entity type, entity value, and position
-        frame = getEntities(document, args.regex_input)
+        frame = entitySearch(document, args.regex_input)
         frame.to_csv("results_for_" + str(base) + ".csv")
 
     totalTimeEnd = time.time()
