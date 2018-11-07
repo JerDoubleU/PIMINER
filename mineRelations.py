@@ -13,59 +13,42 @@ from itertools import cycle
 
 def getCluster(input_file):
 
-    readFrame = pd.read_csv(input_file)
+    raw_df = pd.read_csv(input_file)
 
-    readFrame["text_value"] = readFrame["text_value"].astype('category')
-    readFrame["entity_type"] = readFrame["entity_type"].astype('category')
+    # name the index
+    raw_df.index.names = ['PII_Entity_ID']
 
-    readFrame["text_value_category"] = readFrame["text_value"].cat.codes
-    readFrame["entity_type_category"] = readFrame["entity_type"].cat.codes
-    # readFrame["subtee_len"] = len(readFrame['subtree'])
-    # readFrame["num_lefts"] = len(readFrame['lefts'])
-    # readFrame["num_rights"] = len(readFrame['rights'])
+    columns_to_drop = []
 
-    # print(readFrame.dtypes)
+    # convert categorical fields to codes
+    for field in raw_df.columns:
+        if raw_df[field].dtype == 'object':
+            columns_to_drop.append(field)
+            raw_df['coded_' + str(field)] = raw_df[field].astype('category')
+            raw_df['coded_' + str(field)] = raw_df['coded_' + str(field)].cat.codes
 
-    # # likely need to save entity values and category codes in list
+    # clean up and preview
+    df = raw_df.drop(columns_to_drop, axis=1)
+    print(df.head(10))
 
-    readFrame = readFrame.drop(['end_position',
-        'entity_type',
-        'lefts',
-        'rights',
-        'subtree',
-        'text_value'], axis=1)
+    # convert to array
+    X = np.array(df).astype(np.float)
 
-    print(readFrame.dtypes)
-
-    X = np.array(readFrame).astype(np.float)
-    #
+    # fit model
     af = AffinityPropagation(preference=-50).fit(X)
-
-    print(dir(af))
-
-    print(af.affinity_matrix_)
-
     cluster_centers_indices = af.cluster_centers_indices_
     labels = af.labels_
-
     n_clusters_ = len(cluster_centers_indices)
 
     print('Estimated number of clusters: %d' % n_clusters_)
-    # print("Homogeneity: %0.3f" % met.homogeneity_score(labels_true, labels))
-    # print("Completeness: %0.3f" % met.completeness_score(labels_true, labels))
-    # print("V-measure: %0.3f" % met.v_measure_score(labels_true, labels))
-    # print("Adjusted Rand Index: %0.3f"
-    #       % met.adjusted_rand_score(labels_true, labels))
-    # print("Adjusted Mutual Information: %0.3f"
-    #       % met.adjusted_mutual_info_score(labels_true, labels))
-    # print("Silhouette Coefficient: %0.3f"
-    #       % met.silhouette_score(X, labels, metric='sqeuclidean'))
+
+    print(dir(af))
 
     # # Plot results
     # plt.close('all')
     # plt.figure(1)
     # plt.clf()
-    # #
+    # # # #
     # colors = cycle('bgrcmykbgrcmykbgrcmykbgrcmyk')
     # for k, col in zip(range(n_clusters_), colors):
     #     class_members = labels == k
