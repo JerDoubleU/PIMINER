@@ -18,6 +18,9 @@ def getCluster(input_file):
     # name the index
     raw_df.index.names = ['PII_Entity_ID']
 
+    print(raw_df.columns)
+    print()
+
     columns_to_drop = []
 
     # convert categorical fields to codes
@@ -34,15 +37,49 @@ def getCluster(input_file):
     # convert to array
     X = np.array(df).astype(np.float)
 
-    # fit model
-    af = AffinityPropagation(preference=-50).fit(X)
+    af = AffinityPropagation(preference=-100000, verbose=True).fit(X)
+    print()
+    print(dir(af))
+
     cluster_centers_indices = af.cluster_centers_indices_
     labels = af.labels_
     n_clusters_ = len(cluster_centers_indices)
 
-    print('Estimated number of clusters: %d' % n_clusters_)
+    for k in range(n_clusters_):
+        class_members = labels == k
+        cluster_center = X[cluster_centers_indices[k]]
 
-    print(dir(af))
+        for x in X[class_members]:
+            for index, row in raw_df.iterrows():
+                if x[0] == index:
+                    print(row['entity_type'], row['text_value'])
+                    print([cluster_center[0], x[0]], [cluster_center[1], x[1]])
+
+    # print()
+    # for center in  af.cluster_centers_indices_:
+    #     for index, row in raw_df.iterrows():
+    #         if center == index:
+    #             print(row['entity_type'], row['text_value'])
+
+    # min_pref = -100000
+    # max_pref = 0
+    #
+    # for pref_value in range(min_pref,max_pref):
+    #     # fit model
+    #     af = AffinityPropagation(preference=pref_value).fit(X)
+    #     cluster_centers_indices = af.cluster_centers_indices_
+    #     labels = af.labels_
+    #     n_clusters_ = len(cluster_centers_indices)
+
+        # print('For Preference: ' + str(pref_value))
+        # print('Estimated number of clusters: %d' % n_clusters_)
+
+        # for k in range(n_clusters_):
+        #     class_members = labels == k
+        #     cluster_center = X[cluster_centers_indices[k]]
+        #     print('preference: ' + str(pref_value) + ' clusters: ' + str(n_clusters_) \
+        #         + " " + str(X[class_members[k]]))
+
 
     # # Plot results
     # plt.close('all')
