@@ -10,16 +10,21 @@ import sklearn.metrics as met
 import matplotlib.pyplot as plt
 from itertools import cycle
 
+def getRow(df, index):
+    try:
+        return df.iloc[[index]]
+    except:
+        return [['NONE']]
+
 
 def getCluster(input_file):
 
     raw_df = pd.read_csv(input_file)
 
-    # name the index
-    raw_df.index.names = ['PII_Entity_ID']
-
-    print(raw_df.columns)
-    print()
+    # print(len(raw_df))
+    # print(raw_df.columns)
+    # print(raw_df.head(10))
+    # print()
 
     columns_to_drop = []
 
@@ -30,55 +35,37 @@ def getCluster(input_file):
             raw_df['coded_' + str(field)] = raw_df[field].astype('category')
             raw_df['coded_' + str(field)] = raw_df['coded_' + str(field)].cat.codes
 
-    # clean up and preview
     df = raw_df.drop(columns_to_drop, axis=1)
-    print(df.head(10))
+    # print(df.head(10))
 
     # convert to array
     X = np.array(df).astype(np.float)
 
-    af = AffinityPropagation(preference=-100000, verbose=True).fit(X)
-    print()
-    print(dir(af))
+    min_pref = -100000
+    max_pref = 0
 
-    cluster_centers_indices = af.cluster_centers_indices_
-    labels = af.labels_
-    n_clusters_ = len(cluster_centers_indices)
+    for pref_value in range(min_pref, max_pref):
+        # fit model
+        af = AffinityPropagation(preference=pref_value).fit(X)
+        cluster_centers_indices = af.cluster_centers_indices_
+        labels = af.labels_
+        n_clusters_ = len(cluster_centers_indices)
 
-    for k in range(n_clusters_):
-        class_members = labels == k
-        cluster_center = X[cluster_centers_indices[k]]
+        print('For Preference: ' + str(pref_value))
+        print('Estimated number of clusters: %d' % n_clusters_)
 
-        for x in X[class_members]:
-            for index, row in raw_df.iterrows():
-                if x[0] == index:
-                    print(row['entity_type'], row['text_value'])
-                    print([cluster_center[0], x[0]], [cluster_center[1], x[1]])
+        for k in range(n_clusters_):
+            class_members = labels == k
+            cluster_center = X[cluster_centers_indices[k]]
 
-    # print()
-    # for center in  af.cluster_centers_indices_:
-    #     for index, row in raw_df.iterrows():
-    #         if center == index:
-    #             print(row['entity_type'], row['text_value'])
+            for x in X[class_members]:
+                print('center: ', cluster_center)
+                [print(str(getRow(raw_df, a)['entity_type']).strip(),\
+                        str(getRow(raw_df, a)['text_value']).strip()) \
+                        for a in x]
+                print()
 
-    # min_pref = -100000
-    # max_pref = 0
-    #
-    # for pref_value in range(min_pref,max_pref):
-    #     # fit model
-    #     af = AffinityPropagation(preference=pref_value).fit(X)
-    #     cluster_centers_indices = af.cluster_centers_indices_
-    #     labels = af.labels_
-    #     n_clusters_ = len(cluster_centers_indices)
 
-        # print('For Preference: ' + str(pref_value))
-        # print('Estimated number of clusters: %d' % n_clusters_)
-
-        # for k in range(n_clusters_):
-        #     class_members = labels == k
-        #     cluster_center = X[cluster_centers_indices[k]]
-        #     print('preference: ' + str(pref_value) + ' clusters: ' + str(n_clusters_) \
-        #         + " " + str(X[class_members[k]]))
 
 
     # # Plot results
