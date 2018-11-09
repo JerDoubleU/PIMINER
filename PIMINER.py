@@ -9,6 +9,7 @@ import re # # string operations, mostly data cleaning
 import spacy # # industrial strength NLP engine
 import time # used to print timing metrics
 from spacy.symbols import nsubj, VERB
+from tqdm import tqdm # status bar
 
 # # function to handle input larger than 1000000 characters
 # # takes a string (not NLP object) and a list size as an input
@@ -61,7 +62,7 @@ def entitySearch(document, regex_input):
     regex_patterns_dict = regexPatternsFromFile(regex_input)
 
     # # iterating through sentences seems to be faster
-    for sentence in document.sents:
+    for sentence in tqdm(document.sents):
 
         # # check if sentence contains named entities
         # # if yes, add these entities to the list
@@ -115,7 +116,7 @@ def entitySearch(document, regex_input):
                 }) for x in cleaned_text_matches if len(x) > 0]
 
     entitySearchTimeEnd= time.time()
-    print('FOUND: ', len(new_rows))
+    print('\nFOUND: ', len(new_rows))
     print('Entity searches COMPLETE: ' + str(modelLoadTimeEnd - modelLoadTime) + ' seconds\n')
 
     return pd.DataFrame(new_rows)

@@ -41,12 +41,13 @@ def getCluster(input_file):
     # convert to array
     X = np.array(df).astype(np.float)
 
-    min_pref = -100000
+    min_pref = -100
     max_pref = 0
 
     for pref_value in range(min_pref, max_pref):
         # fit model
         af = AffinityPropagation(preference=pref_value).fit(X)
+
         cluster_centers_indices = af.cluster_centers_indices_
         labels = af.labels_
         n_clusters_ = len(cluster_centers_indices)
