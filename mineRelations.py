@@ -41,51 +41,52 @@ def getCluster(input_file):
     # convert to array
     X = np.array(df).astype(np.float)
 
-    min_pref = -100
-    max_pref = 0
+    min_pref = -100000
+    # max_pref = 0
+    #
+    # for pref_value in range(min_pref, max_pref):
 
-    for pref_value in range(min_pref, max_pref):
-        # fit model
-        af = AffinityPropagation(preference=pref_value).fit(X)
+    # fit model
+    af = AffinityPropagation(preference=min_pref).fit(X)
 
-        cluster_centers_indices = af.cluster_centers_indices_
-        labels = af.labels_
-        n_clusters_ = len(cluster_centers_indices)
+    cluster_centers_indices = af.cluster_centers_indices_
+    labels = af.labels_
+    n_clusters_ = len(cluster_centers_indices)
 
-        print('For Preference: ' + str(pref_value))
-        print('Estimated number of clusters: %d' % n_clusters_)
-
-        for k in range(n_clusters_):
-            class_members = labels == k
-            cluster_center = X[cluster_centers_indices[k]]
-
-            for x in X[class_members]:
-                print('center: ', cluster_center)
-                [print(str(getRow(raw_df, a)['entity_type']).strip(),\
-                        str(getRow(raw_df, a)['text_value']).strip()) \
-                        for a in x]
-                print()
-
-
-
-
-    # # Plot results
-    # plt.close('all')
-    # plt.figure(1)
-    # plt.clf()
-    # # # #
-    # colors = cycle('bgrcmykbgrcmykbgrcmykbgrcmyk')
-    # for k, col in zip(range(n_clusters_), colors):
+    # print('For Preference: ' + str(min_pref))
+    # print('Estimated number of clusters: %d' % n_clusters_)
+    #
+    # for k in range(n_clusters_):
     #     class_members = labels == k
     #     cluster_center = X[cluster_centers_indices[k]]
-    #     plt.plot(X[class_members, 0], X[class_members, 1], col + '.')
-    #     plt.plot(cluster_center[0], cluster_center[1], 'o', markerfacecolor=col,
-    #              markeredgecolor='k', markersize=14)
-    #     for x in X[class_members]:
-    #         plt.plot([cluster_center[0], x[0]], [cluster_center[1], x[1]], col)
     #
-    # plt.title('Estimated number of clusters: %d' % n_clusters_)
-    # plt.show()
+    #     for x in X[class_members]:
+    #         print('center: ', cluster_center)
+    #         [print(str(getRow(raw_df, a)['entity_type']).strip(),\
+    #                 str(getRow(raw_df, a)['text_value']).strip()) \
+    #                 for a in x]
+    #         print()
+
+
+
+
+    # Plot results
+    plt.close('all')
+    plt.figure(1)
+    plt.clf()
+    # # #
+    colors = cycle('bgrcmykbgrcmykbgrcmykbgrcmyk')
+    for k, col in zip(range(n_clusters_), colors):
+        class_members = labels == k
+        cluster_center = X[cluster_centers_indices[k]]
+        plt.plot(X[class_members, 0], X[class_members, 1], col + '.')
+        plt.plot(cluster_center[0], cluster_center[1], 'o', markerfacecolor=col,
+                 markeredgecolor='k', markersize=14)
+        for x in X[class_members]:
+            plt.plot([cluster_center[0], x[0]], [cluster_center[1], x[1]], col)
+
+    plt.title('Estimated number of clusters: %d' % n_clusters_)
+    plt.show()
 
 
 if __name__ == "__main__":
