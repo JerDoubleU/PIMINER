@@ -39,7 +39,7 @@ file = open(file)
 for sentence in file:
   for recognized_Entity in sentence:
     return {type,
-            text_Value,
+            text_value,
             sentence,
             sentence_position,
             head,
@@ -47,7 +47,7 @@ for sentence in file:
             len(getRelations(sentence))}
   for regex_match in sentence:
     return {type,
-            text_Value,
+            text_value,
             sentence,
             sentence_position,
             head,
@@ -76,6 +76,27 @@ Note: any file in this format can be supplied via argument `--regex_input [regex
 
 ```
 ./mineRelations --input_file [piminer output file]
+```
+
+### Pseudo
+
+```python
+from sklearn.cluster import AffinityPropagation
+
+file = open(file)
+X = convert_to_category_codes(file)
+
+for i in range (-100, 0):
+  affinity_model = AffinityPropagation.fit(X)
+
+  j = len(affinity_model.cluster_centers_indices)
+
+  for k in range(j):
+      class_members = labels == k
+      cluster_center = X[cluster_centers_indices[k]]
+
+      for x in X[class_members]:
+        return text_value
 ```
 
 ## Disclaimer
