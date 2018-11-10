@@ -31,6 +31,31 @@ from itertools import cycle
 
 Note: the output of `piminer.py` is save to the directory that `piminer.py` is run from. The output is not intended to be human friendly, but is human readable.
 
+### Pseudo
+
+```python
+file = open(file)
+
+for sentence in file:
+  for recognized_Entity in sentence:
+    return {type,
+            text_Value,
+            sentence,
+            sentence_position,
+            head,
+            getRelations(sentence),
+            len(getRelations(sentence))}
+  for regex_match in sentence:
+    return {type,
+            text_Value,
+            sentence,
+            sentence_position,
+            head,
+            getRelations(sentence),
+            len(getRelations(sentence))}
+```
+
+
 ## `patterns.txt`
 The purpose of [`patterns.txt`](patterns.txt) is to allow for further customization of the regular expression matching. This may be important in domains with very specifically formatted PII. The format of `patterns.txt` is all follows:
 
