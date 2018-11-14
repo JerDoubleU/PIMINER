@@ -10,6 +10,7 @@ import sklearn.metrics as met
 import matplotlib.pyplot as plt
 from itertools import cycle
 
+
 def getRow(df, index):
     try:
         return df.iloc[[index]]
@@ -17,7 +18,11 @@ def getRow(df, index):
         return [['NONE']]
 
 
-def getCluster(src, pref, plot, damp):
+def score_cluster():
+    print()
+
+
+def getCluster(src, pref, plot, damp, dest):
 
     raw_df = pd.read_csv(src)
 
@@ -56,8 +61,16 @@ def getCluster(src, pref, plot, damp):
         class_members = labels == k
         cluster_center = X[cluster_centers_indices[k]]
 
+        cluster_score = 0
+
         for idx, member in enumerate(class_members):
             if member:
+
+                member_text = getRow(raw_df, idx)['text_value'].values.tolist()
+                member_sentence_text = str(getRow(raw_df, idx)['raw_sentence'].values)
+
+                if member_sentence_text.__contains__(member_text[0]):
+                    cluster_score += 1
 
                 row = {
                     'cluster':k,
@@ -66,15 +79,21 @@ def getCluster(src, pref, plot, damp):
                     'number_of_members':sum(class_members),
                     'entity_type': getRow(raw_df, idx)['entity_type'],
                     'text_value': getRow(raw_df, idx)['text_value'],
+                    'sentence_position': getRow(raw_df, idx)['sentence_position'],
                     'center':cluster_center,
+                    'cumulative_cluster_score':cluster_score
                 }
-
 
                 af_new_rows.append(row)
 
     af_df = pd.DataFrame(af_new_rows)
 
     print(af_df.head(10))
+
+    try:
+        af_df.to_csv(str(dest) + '.csv', index=False)
+    except:
+        pass
 
     if plot:
         # Plot results
@@ -104,8 +123,9 @@ if __name__ == "__main__":
     parser.add_argument("--pref", help="Preference value")
     parser.add_argument('--plot', dest='plot', action='store_true')
     parser.add_argument("--damp", nargs='?', default=.5, help="Damping between 1 and .5")
+    parser.add_argument("--dest", nargs='?', help="Filename to save output.")
     parser.set_defaults(plot=False)
 
     args = parser.parse_args()
 
-    getCluster(args.src, args.pref, args.plot, args.damp)
+    getCluster(args.src, args.pref, args.plot, args.damp, args.dest)
