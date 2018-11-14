@@ -17,7 +17,7 @@ def getRow(df, index):
         return [['NONE']]
 
 
-def getCluster(src, pref, plot):
+def getCluster(src, pref, plot, damp):
 
     raw_df = pd.read_csv(src)
 
@@ -41,10 +41,8 @@ def getCluster(src, pref, plot):
     # convert to array
     X = np.array(df).astype(np.float)
 
-    af_new_rows = []
-
     # fit model
-    af = AffinityPropagation(preference=float(pref)).fit(X)
+    af = AffinityPropagation(preference=float(pref), damping=float(damp)).fit(X)
 
     cluster_centers_indices = af.cluster_centers_indices_
     labels = af.labels_
@@ -52,24 +50,31 @@ def getCluster(src, pref, plot):
 
     print('Estimated number of clusters: %d' % n_clusters_)
 
+    af_new_rows = []
+
     for k in range(n_clusters_):
         class_members = labels == k
         cluster_center = X[cluster_centers_indices[k]]
 
-        for x in X[class_members]:
+        for idx, member in enumerate(class_members):
+            if member:
 
-            print(k, labels, x)
+                row = {
+                    'cluster':k,
+                    'cluster_member':idx,
+                    'number_of_clusters':n_clusters_,
+                    'number_of_members':sum(class_members),
+                    'entity_type': getRow(raw_df, idx)['entity_type'],
+                    'text_value': getRow(raw_df, idx)['text_value'],
+                    'center':cluster_center,
+                }
 
-            # columns = ['entity_type', 'text_value']
-            #
-            # print('Center: ', x)
-            # print('Types:')
-            # try:
-            #     [print(getRow(raw_df, a)[columns].values[0][0], \
-            #         getRow(raw_df, a)[columns].values[0][1]) for a in x]
-            # except:
-            #     continue
-            # print()
+
+                af_new_rows.append(row)
+
+    af_df = pd.DataFrame(af_new_rows)
+
+    print(af_df.head(10))
 
     if plot:
         # Plot results
@@ -98,8 +103,9 @@ if __name__ == "__main__":
     parser.add_argument("--src", help="Choose the csv file to process.")
     parser.add_argument("--pref", help="Preference value")
     parser.add_argument('--plot', dest='plot', action='store_true')
+    parser.add_argument("--damp", nargs='?', default=.5, help="Damping between 1 and .5")
     parser.set_defaults(plot=False)
 
     args = parser.parse_args()
 
-    getCluster(args.src, args.pref, args.plot)
+    getCluster(args.src, args.pref, args.plot, args.damp)
