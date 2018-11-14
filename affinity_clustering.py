@@ -77,11 +77,12 @@ def getCluster(src, pref, plot, damp, dest):
                     'cluster_member':idx,
                     'number_of_clusters':n_clusters_,
                     'number_of_members':sum(class_members),
-                    'entity_type': getRow(raw_df, idx)['entity_type'],
-                    'text_value': getRow(raw_df, idx)['text_value'],
-                    'sentence_position': getRow(raw_df, idx)['sentence_position'],
+                    'entity_type': getRow(raw_df, idx)['entity_type'].values,
+                    'text_value': getRow(raw_df, idx)['text_value'].values,
+                    'sentence_position': getRow(raw_df, idx)['sentence_position'].values,
                     'center':cluster_center,
-                    'cumulative_cluster_score':cluster_score
+                    'cumulative_cluster_score':cluster_score,
+                    'raw_sentence':member_sentence_text
                 }
 
                 af_new_rows.append(row)
