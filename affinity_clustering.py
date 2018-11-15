@@ -18,10 +18,6 @@ def getRow(df, index):
         return [['NONE']]
 
 
-def score_cluster():
-    print()
-
-
 def getCluster(src, pref, plot, damp, dest):
 
     raw_df = pd.read_csv(src)
