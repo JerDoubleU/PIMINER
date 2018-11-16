@@ -23,37 +23,16 @@ from itertools import cycle
 ```
 
 ## `piminer.py`
-[`piminer.py`](PIMINER.py) is a CLI script. The script is invoked in the following way from a shell window:
+[`piminer.py`](PIMINER.py) is a CLI script used to identify potentially identifiable data points and to construct a dataset from these points.
+
+### Sample Invocation
+The script is invoked in the following way from a shell window:
 
 ```
 ./piminer.py --input_file [your file] --regex_input [regex patterns]
 ```
 
-Note: the output of `piminer.py` is save to the directory that `piminer.py` is run from. The output is not intended to be human friendly, but is human readable.
-
-### Pseudo
-
-```python
-file = open(file)
-
-for sentence in file:
-  for recognized_Entity in sentence:
-    return {type,
-            text_value,
-            sentence,
-            sentence_position,
-            head,
-            getRelations(sentence),
-            len(getRelations(sentence))}
-  for regex_match in sentence:
-    return {type,
-            text_value,
-            sentence,
-            sentence_position,
-            head,
-            getRelations(sentence),
-            len(getRelations(sentence))}
-```
+Note: the output of `piminer.py` is saved to the directory that `piminer.py` is run from. The output is not intended to be human friendly, but is human readable.
 
 
 ## `patterns.txt`
@@ -71,35 +50,40 @@ DATE; ([a-zA-Z]+) (\d+)
 
 Note: any file in this format can be supplied via argument `--regex_input [regex patterns]`. Regular expressions depend on `python re` and must be compatible with `python 3.6` or later.
 
-## `mineRelations.py`
-[`mineRelations.py`](mineRelations.py) is currently under development. This script will be used to run analysis on the output of `piminer.py` in order to identify clusters and highly similar information. Current invocation:
+## `affinity_clustering.py`
+[`affinity_clustering.py`](affinity_clustering.py) will be used to run analysis on the output of `piminer.py` in order to identify clusters and highly similar information. Brief description of each argument below:
+
+1. `--src` the source file to generate clusters from. Expects data in the output format of `piminer.py`.
+1. `--pref` a parameter from which to base exemplar identification. "High values of the preferences will cause affinity propagation to find many exemplars (clusters), while low values will lead to a small number of exemplars (clusters). A good initial choice for the preference is the minimum similarity or the median similarity."
 
 ```
-./mineRelations --input_file [piminer output file]
+[1]“FAQ for Affinity Propagation.” [Online]. Available: https://www.psi.toronto.edu/affinitypropagation/faq.html. [Accessed: 08-Nov-2018].
 ```
 
-### Pseudo
+1. `--plot` a binary argument used to determine if a visualization of the clusters is generated.
+1. `--damp` an optional flag to control the damping parameter of the affinity model. See:
 
-```python
-from sklearn.cluster import AffinityPropagation
+```
+[1]“FAQ for Affinity Propagation.” [Online]. Available: https://www.psi.toronto.edu/affinitypropagation/faq.html. [Accessed: 08-Nov-2018].
+```
 
-file = open(file)
-X = convert_to_category_codes(file)
+1. `--dest` the destination filepath.
 
-for i in range (-100, 0):
-  affinity_model = AffinityPropagation.fit(X)
+### Sample Invocation
 
-  j = len(affinity_model.cluster_centers_indices)
+```
+./affinity_clustering --input_file [piminer output file]
+```
 
-  for k in range(j):
-      class_members = labels == k
-      cluster_center = X[cluster_centers_indices[k]]
+### Citations
 
-      for x in X[class_members]:
-        return text_value
+```
+[1]D. Dueck, “AFFINITY PROPAGATION: CLUSTERING DATA BY PASSING MESSAGES,” p. 154.
+[2]B. J. Frey and D. Dueck, “Clustering by Passing Messages Between Data Points,” Science, vol. 315, no. 5814, pp. 972–976, Feb. 2007.
+[3]K. Wang, J. Zhang, D. Li, X. Zhang, and T. Guo, “Adaptive Affinity Propagation Clustering,” arXiv:0805.1096 [cs], May 2008.
 ```
 
 ## Disclaimer
-This repository is intended only as a way for me to organize my thoughts and my work.
+This repository is intended only as a way for us to organize our thoughts and our work.
 
 Please review the [University of Michigan Dearborn Academic Code of Conduct](http://catalog.umd.umich.edu/graduate/academic-policies/academic-code-of-conduct/).

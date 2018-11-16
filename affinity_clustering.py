@@ -88,7 +88,7 @@ def getCluster(src, pref, plot, damp, dest):
     print(af_df.head(10))
 
     try:
-        af_df.to_csv(str(dest) + '.csv', index=False)
+        af_df.to_csv(dest, index=False)
     except:
         pass
 
