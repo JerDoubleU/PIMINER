@@ -13,6 +13,5 @@ NAME; [A-Z][a-z]*
 DATE; ([a-zA-Z]+) (\d+)
 USERNAME; /^[a-zA-Z0-9_-]{3,16}$/
 CREDIT_CARD_NUMBER2; \d\d\d\d-\d\d\d\d-\d\d\d\d-\d\d\d\d
-SUSPICIOUS_NUMBER; \D
 NUMBER; [0-9]
 EMAIL; [^@]+@[^@]+\.[^@]+
