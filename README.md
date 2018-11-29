@@ -8,22 +8,25 @@ The full toolset relies heavily on a number of dependencies. NOTE: This list is 
 import argparse
 import os
 import pandas as pd
+import numpy as np
 import math
 import textract
 import re
 import spacy
 import time
-from spacy.symbols import nsubj, VERB
+from tqdm import tqdm
 from sklearn import covariance, cluster
-from sklearn.cluster import AffinityPropagation
-import numpy as np
 import sklearn.metrics as met
+from sklearn.cluster import AffinityPropagation
 import matplotlib.pyplot as plt
 from itertools import cycle
 ```
 
 ## `piminer.py`
-[`piminer.py`](PIMINER.py) is a CLI script used to identify potentially identifiable data points and to construct a dataset from these points.
+[`piminer.py`](PIMINER.py) is a CLI script used to identify potentially identifiable data points and to construct a dataset from these points. [`piminer.py`](PIMINER.py) uses regular expression pattern matching and [spaCy's](https://spacy.io/) off-the-shelf Named Entity Recognition functionality. [`piminer.py`](PIMINER.py) has the following arguments:
+
+1. `--input_file`: A text file to extract PII elements from.
+1. `--regex_input`: A text file containing regular expressions and labels. See and example here: [`patterns.txt`](patterns.txt).
 
 ### Sample Invocation
 The script is invoked in the following way from a shell window:
