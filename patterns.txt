@@ -6,7 +6,7 @@ SOCIAL_SECURITY_NUMBER; (?!000|.+0{4})(?:\d{9})|(?:\d{3}-\d{2}-\d{4})
 EIN_NUMBER; (?:\d{2}-\d{7})
 IPv4; /[0-9]{2}-[0-9]{7}/
 IPv6; /^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i
-CREDIT_CARD_NUMBER; (?:\d{4}-?){3}\d{4}
-DATE; ([a-zA-Z]+) (\d+)
+CREDIT_CARD_NUMBER; (?:\d{4}-){3}\d{4}|\d{16}
+AMEX; (?:\d{4}-\d{6}-\d{5})
 USERNAME; /^[a-zA-Z0-9_-]{3,16}$/
-EMAIL; [^@]+@[^@]+\.[^@]+
+EMAIL; (?:\S+@\S+)
