@@ -1,5 +1,28 @@
 #!/usr/bin/env python3
 
+"""
+#----------------------------- Authors ----------------------------------------#
+Author: Cooper Stansbury
+Author: Dom Korzecke
+Author: Kevin Peters
+Author: Robert Kaster
+
+#----------------------------- Overview ---------------------------------------#
+affinity_clustering/py is a command line tool written in python3 that can be
+used to generate and score clusters of PII elements given output from
+piminer.py.
+
+#----------------------------- Arguments --------------------------------------#
+Five Arguments:
+1. --src: the source file to generate clusters from. Expects csv.
+2. --pref: an integer from which to base exemplar identification.
+3. --plot: binary to determine if a visualization of the clusters is generated.
+4.--damp: to control the damping parameter of the affinity model.
+5. --dest: the destination filepath.
+"""
+
+
+#----------------------------- Dependencies -----------------------------------#
 import argparse # # inorder to port to command line
 import os # # system controls
 from sklearn import covariance, cluster # attempt at clustering
@@ -11,22 +34,28 @@ import matplotlib.pyplot as plt
 from itertools import cycle
 
 
+################################## Helper Function #############################
 def getRow(df, index):
+    """ return index from pandas dataframe, handle empty """
+
     try:
         return df.iloc[[index]]
     except:
         return [['NONE']]
 
 
+################################## Cluster's Last Stand ########################
 def getCluster(src, pref, plot, damp, dest):
+    """
+    note: get clusters through AffinityPropagation.
+    input: See 'Arguments' above.
+    return: dataframe to csv and plot (optional).
+    """
 
+    # read csv input.
     raw_df = pd.read_csv(src)
 
-    # print(len(raw_df))
-    # print(raw_df.columns)
-    # print(raw_df.head(10))
-    # print()
-
+    # We only want numeric columns
     columns_to_drop = []
 
     # convert categorical fields to codes
@@ -34,15 +63,15 @@ def getCluster(src, pref, plot, damp, dest):
         if raw_df[field].dtype == 'object':
             columns_to_drop.append(field)
             raw_df['coded_' + str(field)] = raw_df[field].astype('category')
-            raw_df['coded_' + str(field)] = raw_df['coded_' + str(field)].cat.codes
+            raw_df['coded_' + str(field)] = raw_df['coded_' + \
+                str(field)].cat.codes
 
     df = raw_df.drop(columns_to_drop, axis=1)
-    # print(df.head(10))
 
     # convert to array
     X = np.array(df).astype(np.float)
 
-    # fit model
+    #----------------------------- Fit AffinityPropagation --------------------#
     af = AffinityPropagation(preference=float(pref), damping=float(damp)).fit(X)
 
     cluster_centers_indices = af.cluster_centers_indices_
@@ -50,6 +79,8 @@ def getCluster(src, pref, plot, damp, dest):
     n_clusters_ = len(cluster_centers_indices)
 
     print('Estimated number of clusters: %d' % n_clusters_)
+
+    #----------------------------- Gather Metadata ----------------------------#
 
     af_new_rows = []
 
@@ -83,6 +114,7 @@ def getCluster(src, pref, plot, damp, dest):
 
                 af_new_rows.append(row)
 
+    #----------------------------- File Output --------------------------------#
     af_df = pd.DataFrame(af_new_rows)
 
     print(af_df.head(10))
@@ -91,13 +123,11 @@ def getCluster(src, pref, plot, damp, dest):
         af_df.to_csv(dest, index=False)
     except:
         pass
-
+    #----------------------------- Plotting -----------------------------------#
     if plot:
-        # Plot results
         plt.close('all')
         plt.figure(1)
         plt.clf()
-        # # #
         colors = cycle('bgrcmykbgrcmykbgrcmykbgrcmyk')
         for k, col in zip(range(n_clusters_), colors):
             class_members = labels == k
@@ -111,18 +141,19 @@ def getCluster(src, pref, plot, damp, dest):
         plt.title('Estimated number of clusters: %d' % n_clusters_)
         plt.show()
 
-
+################################## Main ########################################
 if __name__ == "__main__":
 
-    # # parse command-line args
+    #----------------------------- Argument Definition ------------------------#
     parser = argparse.ArgumentParser(description='file')
     parser.add_argument("--src", help="Choose the csv file to process.")
     parser.add_argument("--pref", help="Preference value")
     parser.add_argument('--plot', dest='plot', action='store_true')
-    parser.add_argument("--damp", nargs='?', default=.5, help="Damping between 1 and .5")
+    parser.add_argument("--damp", nargs='?', default=.5,\
+        help="Damping between 1 and .5")
     parser.add_argument("--dest", nargs='?', help="Filename to save output.")
     parser.set_defaults(plot=False)
 
     args = parser.parse_args()
-
+    #----------------------------- Generate Clusters --------------------------#
     getCluster(args.src, args.pref, args.plot, args.damp, args.dest)

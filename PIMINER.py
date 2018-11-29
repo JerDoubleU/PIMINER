@@ -176,7 +176,7 @@ def entitySearch(document, regex_input):
 ################################## Main ########################################
 if __name__ == "__main__":
 
-    #----------------------------- Argument Definition -------------------------#
+    #----------------------------- Argument Definition ------------------------#
     parser = argparse.ArgumentParser(description='file')
     parser.add_argument("--input_file", \
         help="Choose the text file to process.")
