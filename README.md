@@ -25,14 +25,15 @@ from itertools import cycle
 ## `piminer.py`
 [`piminer.py`](PIMINER.py) is a CLI script used to identify potentially identifiable data points and to construct a dataset from these points. [`piminer.py`](PIMINER.py) uses regular expression pattern matching and [spaCy's](https://spacy.io/) off-the-shelf Named Entity Recognition functionality. [`piminer.py`](PIMINER.py) has the following arguments:
 
-1. `--input_file`: A text file to extract PII elements from.
-1. `--regex_input`: A text file containing regular expressions and labels. See and example here: [`patterns.txt`](patterns.txt).
+1. `--src`: A text file to extract PII elements from.
+1. `--r`: A text file containing regular expressions and labels. See and example here: [`patterns.txt`](patterns.txt).
+1. `--model`: An optional argument for declaring a custom NER model. Default to `en_core_web_md`.
 
 ### Sample Invocation
 The script is invoked in the following way from a shell window:
 
 ```
-./piminer.py --input_file [your file] --regex_input [regex patterns]
+./piminer.py --input_file [your file] --regex_input [regex patterns] --model [model]
 ```
 
 Note: the output of `piminer.py` is saved to the directory that `piminer.py` is run from. The output is not intended to be human friendly, but is human readable.

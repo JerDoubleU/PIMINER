@@ -14,8 +14,8 @@ unstructured text documents.
 
 #----------------------------- Arguments --------------------------------------#
 TWO Positional Arguments:
-1. --input_file: A text file to extract PII elements from.
-2. --regex_input: A text file containing regular expressions and labels.
+1. --src: A text file to extract PII elements from.
+2. --r: A text file containing regular expressions and labels.
 """
 
 #----------------------------- Dependencies -----------------------------------#
@@ -49,15 +49,15 @@ def textSplit(text, size):
     return text_splits
 
 
-def regexPatternsFromFile(regex_input):
+def regexPatternsFromFile(r):
     """
     note: parse regex input arguement
     input:
-        'regex_input': file passed from commandline arg
+        'r': file passed from commandline arg
     return: dictionary of labels and patterns
     """
 
-    pattenFile = open(regex_input, 'r')
+    pattenFile = open(r, 'r')
 
     pattern_dict = {}
 
@@ -87,12 +87,12 @@ def possibleRelations(sentence):
 
 
 ################################## Entity Search ###############################
-def entitySearch(document, regex_input):
+def entitySearch(document, r):
     """
     note: search through document and construct dataframe for all PII elements.
     inputs:
         'document': an NLP object.
-        'regex_input': regex pattern file
+        'r': regex pattern file
 
     return: a dataframe of entities and metadata.
     """
@@ -105,7 +105,7 @@ def entitySearch(document, regex_input):
     new_rows = []
 
     # # get regex patterns from file (more easily extendable)
-    regex_patterns_dict = regexPatternsFromFile(regex_input)
+    regex_patterns_dict = regexPatternsFromFile(r)
 
     #---------------------------- NER Search ----------------------------------#
     for sentence in tqdm(document.sents):
@@ -174,19 +174,22 @@ if __name__ == "__main__":
 
     #----------------------------- Argument Definition ------------------------#
     parser = argparse.ArgumentParser(description='file')
-    parser.add_argument("--input_file", \
+    parser.add_argument("--src", \
         help="Choose the text file to process.")
 
-    parser.add_argument("--regex_input", \
+    parser.add_argument("--r", \
         help="Choose the text file to process.")
+
+    parser.add_argument("--model", nargs='?', default='en_core_web_md',\
+        help="Choose NER model.")
+
     args = parser.parse_args()
 
     #----------------------------- NLP Model Loading --------------------------#
     totalTime = time.time()
     modelLoadTime = time.time()
 
-    # # model = 'en_core_web_lg'
-    model = 'en_core_web_md'
+    model = args.model
 
     print('Loading language library: ' + str(model) + '...')
     nlp = spacy.load(model)
@@ -197,15 +200,15 @@ if __name__ == "__main__":
 
     #----------------------------- File Operations ----------------------------#
     # file operstions for naming output
-    source_file = os.path.basename(args.input_file)
+    source_file = os.path.basename(args.src)
     base = os.path.splitext(source_file)[0]
 
     # # need to make simple file handling more robust
     print('Reading file: ' + str(source_file) + '...')
     fileReadTime = time.time()
 
-    # # create nlp object from input_file
-    text = str(textract.process(args.input_file,
+    # # create nlp object from src
+    text = str(textract.process(args.src,
             method='tesseract',
             language='en'))
 
@@ -255,7 +258,7 @@ if __name__ == "__main__":
     #----------------------------- Entity Search ------------------------------#
 
         # get dataframe with entity type, entity value, and position
-        frame = entitySearch(document, args.regex_input)
+        frame = entitySearch(document, args.r)
         frame.to_csv("results_for_" + str(base) + ".csv")
 
     totalTimeEnd = time.time()
