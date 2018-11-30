@@ -1,0 +1,76 @@
+[1]“Data - Truth Tobacco Industry Documents.” .
+[2]R. Snow, D. Jurafsky, and A. Y. Ng, “Learning Syntactic Patterns for Automatic Hypernym Discovery,” in Advances in Neural Information Processing Systems 17, L. K. Saul, Y. Weiss, and L. Bottou, Eds. MIT Press, 2005, pp. 1297–1304.
+[3]S. Abuga, A iHub Summer 2015 project. Contribute to savioabuga/piianalyzer development by creating an account on GitHub. 2018.
+[4]B. Eshete, Sensitive and Private Information Filter. Contribute to birhanum/SPIF development by creating an account on GitHub. 2015.
+[5]P. Hendricks, Anonymize data containing Personally Identifiable Information (PII) in R: paulhendricks/anonymizer. 2018.
+[6]P. Hendricks, Generate data containing fake  Personally Identifiable Information (PII) in R: paulhendricks/generator. 2018.
+[7]T. Mahajan, Contribute to tjdevWorks/PII-Detection development by creating an account on GitHub. 2018.
+[8]:exclamation: This is a read-only mirror of the CRAN R package repository.  detector — Detect Data Containing Personally Identifiable Information. Homepage: https://github.com/paulhendricks/detecto.. cran, 2015.
+[9]Application and python script to identify, remove, and/or recode personally identifiable information (PII) from field experiment datasets.: PovertyAction/PII_detection. Innovations for Poverty Action, 2018.
+[10]Application and python script to identify, remove, and/or recode personally identifiable information (PII) from field experiment datasets.: PovertyAction/PII_detection. Innovations for Poverty Action, 2018.
+[11]Remove personally identifiable information from text.: solvvy/redact-pii. Solvvy, 2018.
+[12]Clean personally identifiable information from dirty dirty text.: datascopeanalytics/scrubadub. Datascope Analytics, 2018.
+[13]Fuzzy String Matching in Python. Contribute to seatgeek/fuzzywuzzy development by creating an account on GitHub. SeatGeek, 2018.
+[14]M. N. Arefi, G. Alexander, and J. R. Crandall, “PIITracker: Automatic Tracking of Personally Identifiable Information in Windows,” in Proceedings of the 11th European Workshop on Systems Security, New York, NY, USA, 2018, pp. 3:1–3:6.
+[15]T. Aura, T. A. Kuhn, and M. Roe, “Scanning Electronic Documents for Personally Identifiable Information,” in Proceedings of the 5th ACM Workshop on Privacy in Electronic Society, New York, NY, USA, 2006, pp. 41–50.
+[16]C. Freitas, D. Santos, C. Mota, H. Gonçalo Oliveira, and P. Carvalho, “Relation detection between named entities: report of a shared task,” in Proceedings of the Workshop on Semantic Evaluations: Recent Achievements and Future Directions (SEW-2009), Boulder, Colorado, 2009, pp. 129–137.
+[17]V. Griffith and M. Jakobsson, “Messin’ with Texas Deriving Mother’s Maiden Names Using Public Records,” in Applied Cryptography and Network Security, 2005, pp. 91–103.
+[18]M. Mintz, S. Bills, R. Snow, and D. Jurafsky, “Distant supervision for relation extraction without labeled data,” in Proceedings of the Joint Conference of the 47th Annual Meeting of the ACL and the 4th International Joint Conference on Natural Language Processing of the AFNLP, Suntec, Singapore, 2009, pp. 1003–1011.
+[19]D. Recordon and D. Reed, “OpenID 2.0: A Platform for User-centric Identity Management,” in Proceedings of the Second ACM Workshop on Digital Identity Management, New York, NY, USA, 2006, pp. 11–16.
+[20]K. Swampillai and M. Stevenson, “Extracting Relations Within and Across Sentences,” in Proceedings of the International Conference Recent Advances in Natural Language Processing 2011, Hissar, Bulgaria, 2011, pp. 25–32.
+[21]N. X. Vinh, J. Epps, and J. Bailey, “Information theoretic measures for clusterings comparison: is a correction for chance necessary?,” in Proceedings of the 26th Annual International Conference on Machine Learning - ICML ’09, Montreal, Quebec, Canada, 2009, pp. 1–8.
+[22]G. Weikum and M. Theobald, “From Information to Knowledge: Harvesting Entities and Relationships from Web Sources,” in Proceedings of the Twenty-ninth ACM SIGMOD-SIGACT-SIGART Symposium on Principles of Database Systems, New York, NY, USA, 2010, pp. 65–76.
+[23]“Affinity propagation,” Wikipedia. 16-Jan-2018.
+[24]“Personally identifiable information,” Wikipedia. 29-Nov-2018.
+[25]J. Brown and D. M. Blough, “Verifiable and Redactable Medical Documents,” AMIA Annu Symp Proc, vol. 2012, pp. 1148–1157, Nov. 2012.
+[26]G. W. Bush, “FREEDOM OF INFORMATION ACT,” p. 13.
+[27]D. L. Davies and D. W. Bouldin, “A Cluster Separation Measure,” IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. PAMI-1, no. 2, pp. 224–227, Apr. 1979.
+[28]D. Dueck, “AFFINITY PROPAGATION: CLUSTERING DATA BY PASSING MESSAGES,” p. 154.
+[29]B. J. Frey and D. Dueck, “Clustering by Passing Messages Between Data Points,” Science, vol. 315, no. 5814, pp. 972–976, Feb. 2007.
+[30]M. Halkidi, Y. Batistakis, and M. Vazirgiannis, “[No Title],” Journal of Intelligent Information Systems, vol. 17, no. 2/3, pp. 107–145, 2001.
+[31]M. Honnibal and I. Montani, “spacy 2: Natural language understanding with bloom embeddings, convolutional neural networks and incremental parsing,” To appear, 2017.
+[32]M. Kozak, “‘A Dendrite Method for Cluster Analysis’ by Caliński and Harabasz: A Classical Work that is Far Too Often Incorrectly Cited,” Communications in Statistics - Theory and Methods, vol. 41, no. 12, pp. 2279–2280, Jun. 2012.
+[33]A. Narayanan and V. Shmatikov, “Myths and Fallacies of ‘Personally Identifiable Information,’” Commun. ACM, vol. 53, no. 6, pp. 24–26, Jun. 2010.
+[34]P. J. Rousseeuw, “Silhouettes: A graphical aid to the interpretation and validation of cluster analysis,” Journal of Computational and Applied Mathematics, vol. 20, pp. 53–65, Nov. 1987.
+[35]P. M. Schwartz and D. J. Solove, “The PII Problem: Privacy and a New Concept of Personally Identifiable Information,” N.Y.U. L. Rev., vol. 86, p. 1814, 2011.
+[36]Sen. Feinstein, Dianne [D-CA], “S.116 - Privacy Act of 2005,” Jan. 2005.
+[37]K. Wang, J. Zhang, D. Li, X. Zhang, and T. Guo, “Adaptive Affinity Propagation Clustering,” arXiv:0805.1096 [cs], May 2008.
+[38]N. Wu et al., “A Method for Entity Identification in Open Source Documents with Partially Redacted Attributes,” J. Comput. Sci. Coll., vol. 22, no. 5, pp. 138–144, May 2007.
+[39]Z. Yang, R. Algesheimer, and C. J. Tessone, “A Comparative Analysis of Community Detection Algorithms on Artificial Networks,” Scientific Reports, vol. 6, no. 1, Nov. 2016.
+[40]Y. Aumann, “Method for system for redacting and presenting documents,” US20110119576A1, 19-May-2011.
+[41]R. T. Baird, J. C. Baird, and T. P. Blair, “Controlling the distribution of information,” US7475242B2, 06-Jan-2009.
+[42]P. J. Hong et al., “Related entities,” US20180046717A1, 15-Feb-2018.
+[43]C. Hung, C. Leung, and Z. Han, “Systems and methods for redacting sensitive data entries,” US20110239113A1, 29-Sep-2011.
+[44]B. Hussain and S. Rajput, “Method, system and apparatus for providing stateful information redaction,” US8590034B2, 19-Nov-2013.
+[45]S. Jaiswal, “Systems and methods for generating machine learning-based classifiers for detecting specific categories of sensitive information,” US8688601B2, 01-Apr-2014.
+[46]C. H. Kratsch, “System for Collection and Longitudinal Analysis of Anonymous Student Data,” US20110202774A1, 18-Aug-2011.
+[47]M. Muthusrinivasan, P. Haahr, and M. D. Cutts, “Personally identifiable information detection,” US8561185B1, 15-Oct-2013.
+[48]B. S. Pendergast, N. C. Croce, and R. Rupp, “Document Redaction in a Web-Based Data Analysis and Document Review System,” US20090019379A1, 15-Jan-2009.
+[49]R. M. Redlich and M. A. Nemzow, “Electromagnetic pulse (EMP) hardened information infrastructure with extractor, cloud dispersal, secure storage, content analysis and classification and method therefor,” US8655939B2, 18-Feb-2014.
+[50]R. Shelton, “System and method for selectively redacting information in electronic  documents,” US8904554B2, 02-Dec-2014.
+[51]S. Villaron, B. Jones, and C. Rothschiller, “Method and system for managing personally identifiable information and sensitive information in an application-independent manner,” US20060143459A1, 29-Jun-2006.
+[52]L. Zettlemoyer, “cse517wi13-RelationExtraction.pdf,” 2013.
+[53]L. Zettlemoyer, “cse517wi13-RelationExtractionII.pdf,” 2013.
+[54]E. McCallister, T. Grance, and K. A. Scarfone, “Guide to protecting the confidentiality of Personally Identifiable Information (PII),” National Institute of Standards and Technology, Gaithersburg, MD, NIST SP 800-122, 2010.
+[55]© 2018 Cloudera, I. A. rights reserved A. Hadoop,  associated open source project names are trademarks of the A. S. F. F. a complete list of trademarks, and C. Here, “Sensitive Data Redaction | 5.4.x | Cloudera Documentation.” [Online]. Available: https://www.cloudera.com/documentation/enterprise/5-4-x/topics/sg_redaction.html. [Accessed: 04-Oct-2018].
+[56]D. Feinstein, “Text - S.116 - 109th Congress (2005-2006): Privacy Act of 2005,” 24-Jan-2005. [Online]. Available: https://www.congress.gov/bill/109th-congress/senate-bill/116/text. [Accessed: 10-Oct-2018].
+[57]G. Smith, “Text - S.1408 - 109th Congress (2005-2006): Identity Theft Protection Act,” 08-Dec-2005. [Online]. Available: https://www.congress.gov/bill/109th-congress/senate-bill/1408/text. [Accessed: 10-Oct-2018].
+[58]“Latanya Sweeney’s Comments on Proposed Modifications to HIPAA Privacy Rule,” 28-Mar-2009. [Online]. Available: https://web.archive.org/web/20090328103238/http://privacy.cs.cmu.edu/dataprivacy/HIPAA/HIPAAcomments.html. [Accessed: 04-Oct-2018].
+[59]“Overview of The Privacy Act of 1974 (2015 Edition),” 16-Jun-2014. [Online]. Available: https://www.justice.gov/opcl/overview-privacy-act-1974-2015-edition. [Accessed: 30-Nov-2018].
+[60]“Google patent on related entities and what it means for SEO,” Search Engine Land, 05-Apr-2018. [Online]. Available: https://searchengineland.com/google-patent-on-related-entities-and-what-it-means-for-seo-295727. [Accessed: 25-Oct-2018].
+[61]“18 U.S. Code § 1028 - Fraud and related activity in connection with identification documents, authentication features, and information,” LII / Legal Information Institute. [Online]. Available: https://www.law.cornell.edu/uscode/text/18/1028. [Accessed: 30-Nov-2018].
+[62]“A machine learning based system for semi-automatically redacting documents - Record - Articles - Library Search.” [Online]. Available: https://search.lib.umich.edu/articles/record/FETCH-scopus_primary_3628216302?query=A%20Machine%20Learning%20Based%20System%20for%20Semi-Automatically%20Redacting%20Documents&utm_source=MLibrary. [Accessed: 27-Sep-2018].
+[63]“Creating a Data Redaction Capability to Meet GDPR Requirements Using EDB Postgres | EnterpriseDB.” [Online]. Available: https://www.enterprisedb.com/blog/creating-data-redaction-capability-meet-gdpr-requirements-using-edb-postgres. [Accessed: 04-Oct-2018].
+[64]“Data Redaction. PII String Masking | IRI, The CoSort Company.” [Online]. Available: https://www.iri.com/solutions/data-masking/static-data-masking/redact. [Accessed: 27-Sep-2018].
+[65]“De-Identification/Redaction : elumicor.” [Online]. Available: http://www.elumicor.com/redaction/. [Accessed: 27-Sep-2018].
+[66]“FAQ for Affinity Propagation.” [Online]. Available: https://www.psi.toronto.edu/affinitypropagation/faq.html. [Accessed: 08-Nov-2018].
+[67]“GAO-08-536, Privacy: Alternatives Exist for Enhancing Protection of Personally Identifiable Information.” [Online]. Available: https://www.gao.gov/assets/280/275565.html. [Accessed: 30-Nov-2018].
+[68]“LexisNexis® Academic & Library Solutions.” [Online]. Available: http://www.lexisnexis.com.proxy.lib.umich.edu/hottopics/lnacademic/?shr=t&csi=7351&sr=(%22The+PII+problem+Privacy+a+new+concept+of+personally+identifiable+information%22)+and+date+is+2011. [Accessed: 21-Sep-2018].
+[69]“Natural Language Toolkit — NLTK 3.4 documentation.” [Online]. Available: https://www.nltk.org/. [Accessed: 30-Nov-2018].
+[70]“Redacting sensitive data from images | Data Loss Prevention API,” Google Cloud. [Online]. Available: https://cloud.google.com/dlp/docs/redacting-sensitive-data-images. [Accessed: 27-Sep-2018].
+[71]“Relation Extraction II - PDF.” [Online]. Available: https://docplayer.net/75272109-Relation-extraction-ii.html. [Accessed: 10-Nov-2018].
+[72]“Results - Truth Tobacco Industry Documents.” [Online]. Available: https://www.industrydocumentslibrary.ucsf.edu/tobacco/results/#q=partially%20redacted&h=%7B%22hideDuplicates%22%3Atrue%2C%22hideFolders%22%3Atrue%7D&subsite=tobacco&cache=true&count=3193. [Accessed: 27-Sep-2018].
+[73]“Rules and Policies - Protecting PII - Privacy Act.” [Online]. Available: https://www.gsa.gov/reference/gsa-privacy-program/rules-and-policies-protecting-pii-privacy-act. [Accessed: 04-Oct-2018].
+[74]“Searching and Redacting Text.” [Online]. Available: https://www.nuance.com/products/help/NuancePDF/en_US/Searching_and_Redacting_Text.htm. [Accessed: 04-Oct-2018].
+[75]“spaCy · Industrial-strength Natural Language Processing in Python.” [Online]. Available: https://spacy.io/. [Accessed: 30-Nov-2018].
+[76]“The Stanford Natural Language Processing Group.” [Online]. Available: https://nlp.stanford.edu/software/CRF-NER.shtml. [Accessed: 14-Nov-2018].

@@ -1,5 +1,5 @@
 # Detecting PII in Documents
-This repository contains tools for discovering PII as a final project for CIS 545. The goal is to detect information that may be sensitive in a document in order to prevent accidental disclosure. We do not recommend the use of these tools outside of academic settings as they have not been fully validated.
+This repository contains tools for discovering PII as a final project for CIS 545. The goal is to detect information that may be sensitive in a document in order to prevent accidental disclosure. We do not recommend the use of these tools outside of academic settings as they have not been fully validated. For our sources please see [citations](CITATIONS.txt).
 
 ## Dependencies
 The full toolset relies heavily on a number of dependencies. NOTE: This list is frequently changing. Currently, there is no tooling to manage dependencies, so please check to make sure you have everything installed:
