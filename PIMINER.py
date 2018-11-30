@@ -124,11 +124,7 @@ def entitySearch(document, regex_input):
                     'n_possible_dependents': len(possibleRelations(sentence))
                     }) for x in entity_list]
 
-    #----------------------------- Regex Search -------------------------------#
-    """
-    note: regex patterns are called on raw string values for each sent AND on
-        cleaned sentences to maximize the chances of discovering PII elements.
-    """
+
         for search_pattern in regex_patterns_dict:
 
             # # need to declare the string each time, not sure why
