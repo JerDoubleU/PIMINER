@@ -1,0 +1,21 @@
+Loading language library: en_core_web_md...
+Library load COMPLETE: 11.724979877471924 seconds
+
+Reading file: tobacco_data.txt...
+Input document length: 189503
+
+Read COMPLETE: 0.003648042678833008 seconds
+
+Converting file to spacy object: tobacco_data.txt...
+Part 1 of 1
+Convert COMPLETE: 4.404447078704834 seconds
+
+Conducting entity searches...
+
+FOUND:  3096
+Entity searches COMPLETE: 11.724979877471924 seconds
+
+Saving output for: tobacco_data.txt
+Saving to: pm_std_tobacco_data_2csv
+piminer COMPLETE: 27.413566827774048 seconds
+

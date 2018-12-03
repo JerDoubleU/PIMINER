@@ -1,0 +1,21 @@
+Loading language library: ../NER_model/...
+Library load COMPLETE: 14.468499183654785 seconds
+
+Reading file: tobacco_data.txt...
+Input document length: 189503
+
+Read COMPLETE: 0.0036551952362060547 seconds
+
+Converting file to spacy object: tobacco_data.txt...
+Part 1 of 1
+Convert COMPLETE: 4.4639198780059814 seconds
+
+Conducting entity searches...
+
+FOUND:  1455
+Entity searches COMPLETE: 14.468499183654785 seconds
+
+Saving output for: tobacco_data.txt
+Saving to: pm_cus_tobacco_data_2csv
+piminer COMPLETE: 22.796378135681152 seconds
+

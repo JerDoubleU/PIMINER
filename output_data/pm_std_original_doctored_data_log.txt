@@ -1,0 +1,21 @@
+Loading language library: en_core_web_md...
+Library load COMPLETE: 11.586406946182251 seconds
+
+Reading file: original_doctored_data.docx...
+Input document length: 11682
+
+Read COMPLETE: 0.01059103012084961 seconds
+
+Converting file to spacy object: original_doctored_data.docx...
+Part 1 of 1
+Convert COMPLETE: 0.2703850269317627 seconds
+
+Conducting entity searches...
+
+FOUND:  213
+Entity searches COMPLETE: 11.586406946182251 seconds
+
+Saving output for: original_doctored_data.docx
+Saving to: pm_std_original_doctored_data_2csv
+piminer COMPLETE: 12.00576901435852 seconds
+
