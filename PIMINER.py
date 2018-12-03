@@ -183,6 +183,8 @@ if __name__ == "__main__":
     parser.add_argument("--model", nargs='?', default='en_core_web_md',\
         help="Choose NER model.")
 
+    parser.add_argument("--dest", nargs='?', help="Filename to save output.")
+
     args = parser.parse_args()
 
     #----------------------------- NLP Model Loading --------------------------#
@@ -211,6 +213,8 @@ if __name__ == "__main__":
     text = str(textract.process(args.src,
             method='tesseract',
             language='en'))
+
+    print('Input document length: ' + str(len(text)) + '\n')
 
     # # spacy has a limit of 1000000 chars
     # # break into multiple files to handle
@@ -259,7 +263,10 @@ if __name__ == "__main__":
 
         # get dataframe with entity type, entity value, and position
         frame = entitySearch(document, args.r)
-        frame.to_csv("results_for_" + str(base) + ".csv")
+
+        print('Saving output for: ' + str(source_file))
+        print('Saving to: ' + str(args.dest).split(".")[0] + '_' + str(processing_count) + str(args.dest).split(".")[1])
+        frame.to_csv(args.dest)
 
     totalTimeEnd = time.time()
     print('piminer COMPLETE: ' + str(totalTimeEnd - totalTime) + ' seconds\n')
