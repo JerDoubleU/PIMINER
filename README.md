@@ -28,6 +28,7 @@ from itertools import cycle
 1. `--src`: A text file to extract PII elements from.
 1. `--r`: A text file containing regular expressions and labels. See and example here: [`patterns.txt`](patterns.txt).
 1. `--model`: An optional argument for declaring a custom NER model. Default to `en_core_web_md`.
+1. `--dest` the destination filepath.
 
 ### Sample Invocation
 The script is invoked in the following way from a shell window:
