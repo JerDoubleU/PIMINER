@@ -1,21 +1,21 @@
-Loading language library: en_core_web_md...
-Library load COMPLETE: 11.708502769470215 seconds
+Loading language library: ../NER_model/...
+Library load COMPLETE: 14.604955911636353 seconds
 
 Reading file: original_doctored_data.docx...
 Input document length: 11682
 
-Read COMPLETE: 0.012554168701171875 seconds
+Read COMPLETE: 0.030043840408325195 seconds
 
 Converting file to spacy object: original_doctored_data.docx...
 Part 1 of 1
-Convert COMPLETE: 0.25634002685546875 seconds
+Convert COMPLETE: 0.32886314392089844 seconds
 
 Conducting entity searches...
 
-FOUND:  213
-Entity searches COMPLETE: 11.708502769470215 seconds
+FOUND:  74
+Entity searches COMPLETE: 14.604955911636353 seconds
 
 Saving output for: original_doctored_data.docx
 Saving to: pm_cus_original_doctored_data_2csv
-piminer COMPLETE: 12.104929208755493 seconds
+piminer COMPLETE: 15.049771785736084 seconds
 
